@@ -8,12 +8,14 @@ public class LocationBuilder : MonoBehaviour
     [SerializeField]List<LocationSO> locations;
 
     private int  actualLocationIndex;
-   public void GenerateLocation()
+   public LocationSO GenerateLocation()
    {
         actualLocationIndex = Random.Range(0, locations.Count);
         Instantiate(locations[actualLocationIndex].locationPrefab, new Vector3(0, 0, 0), Quaternion.identity, transform);   
         InstantiateEventGameObjects();
-        
+        return locations[actualLocationIndex];
+
+
    }
 
     public void InstantiateEventGameObjects()
@@ -63,6 +65,7 @@ public class LocationBuilder : MonoBehaviour
             if (eventSO.proportions == currentAreaProportion)
             {
                 tmpEvents.Add(eventSO);
+                print(eventSO.proportions);
             }
         }
         return tmpEvents;

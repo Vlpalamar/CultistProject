@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000c36dca992f643e8c6f484b2691fd497b9b31b4ba
+  m_ApplyToSortingLayers: 00000000c36dca992f643e8c6f484b2691fd497b9b31b4ba7d6e76e7
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73c5e40f966f224c965e50d95fd5b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LocationBuilder: {fileID: 2143005252}
+  locationBuilder: {fileID: 2143005252}
 --- !u!4 &1065062409
 Transform:
   m_ObjectHideFlags: 0
@@ -726,7 +726,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 523127
+    m_Bits: 519031
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -784,6 +784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locations:
   - {fileID: 11400000, guid: a90ef7699bb21e147b72f7601f020084, type: 2}
+  - {fileID: 11400000, guid: 8553d75e8eec86b4d97a1405fb5e382a, type: 2}
 --- !u!4 &2143005253
 Transform:
   m_ObjectHideFlags: 0

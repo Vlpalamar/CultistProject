@@ -1,0 +1,59 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+[DisallowMultipleComponent]
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(MovementByVelocity))]
+[RequireComponent(typeof(MovementByVelocityEvent))]
+
+[RequireComponent(typeof(PlayerControl))]
+public class Player : MonoBehaviour
+{
+    private BoxCollider2D boxCollider;
+    private Rigidbody2D rigidbody;
+    private Health health;
+    private Animator animator;
+    private PlayerDetailsSO playerDetails;
+    private MovementByVelocityEvent movementByVelocityEvent;
+    private PlayerControl playerControl;
+    public MovementByVelocityEvent MovementByVelocityEvent { get => movementByVelocityEvent;}
+
+    //private PlayerControll playerControll;
+
+    private void Awake()
+    {
+        boxCollider = GetComponent<BoxCollider2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        health = GetComponent<Health>();
+        playerControl= GetComponent<PlayerControl>();
+        movementByVelocityEvent = GetComponent<MovementByVelocityEvent>();
+
+    }
+    private void Start()
+    {
+       
+       
+    }
+
+    public void Initialize(PlayerDetailsSO playerDetails)
+    {
+        this.playerDetails = playerDetails;
+        print(playerDetails);
+        SetPlayerHealth();
+    }
+
+    private void SetPlayerHealth()
+    {
+        print(playerDetails.PlayerStartHealth);
+        print(health);
+        health.SetStartingHealth(playerDetails.PlayerStartHealth);
+    }
+}

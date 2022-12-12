@@ -31,4 +31,8 @@ public class LocationSO : ScriptableObject
     [Tooltip("Populate with 2 coordinats for 1event  ")]
     #endregion
     public List<Vector2Int> areasOfEvents;
+
+
+    //пока нет хаба, потом удалить 
+    public Vector3 spawnPoint;
 }
