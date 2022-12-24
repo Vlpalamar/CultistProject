@@ -13,20 +13,26 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private GameState gameState;
 
     public GameState GameState { get => gameState; }
+    public LocationSO CurrentLocation { get => currentLocation;  }
 
     protected override void Awake()
     {
         base.Awake();
         playerDetails = Resources.Load<CurrentPlayerSO>("CurrentPlayer_").PlayerDetails;
+        InstantiatePlayer();
 
 
     }
     private void Start()
     {
         gameState = GameState.gameStarted;
-        InstantiatePlayer();
-
     }
+
+    internal Player GetPlayer()
+    {
+        return player;
+    }
+
     private void Update()
     {
         HandleGameStates(gameState);
@@ -51,7 +57,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         currentLocation = locationBuilder.GenerateLocation();
         //инициализировать хаб 
-        player.transform.position = currentLocation.spawnPoint;
+        player.transform.position = CurrentLocation.spawnPoint;
 
 
         gameState = GameState.playingTheGame;
@@ -60,6 +66,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private void InstantiatePlayer()
     {
         GameObject playerGameObject = Instantiate(playerDetails.PlayerPrefab);
+        print(playerGameObject);
         player = playerGameObject.GetComponent<Player>();
         player.Initialize(playerDetails);
     }

@@ -115,7 +115,9 @@ SpriteAtlas:
   - {fileID: -2349410825630649526, guid: aa4436a2d8907bd43bdd244f56a3aafe, type: 3}
   - {fileID: 21300000, guid: 8b08bcd21cb8a42fba868f390b68099b, type: 3}
   - {fileID: 21300000, guid: 6b19fa030e22a4aa7a4ebc2029911cf4, type: 3}
+  - {fileID: 21300000, guid: b121dc43358bd07428d9d72fb1cb4511, type: 3}
   - {fileID: 21300000, guid: 3b9c38445f15341d3a30049b1e724d7c, type: 3}
+  - {fileID: 21300000, guid: 5a34d9a4a7a31ad4aa2cf971d8164ab5, type: 3}
   - {fileID: 21300000, guid: 063edbe48872b4ab39d61247bfbc7217, type: 3}
   - {fileID: 21300000, guid: ed8786350b43746719629d0e1c8d5a45, type: 3}
   - {fileID: 21300000, guid: 1e100c655539c4940865adc0c42af0ee, type: 3}
@@ -196,7 +198,9 @@ SpriteAtlas:
   - Shading_9
   - tile-border-right
   - tile-border-top
+  - isometric_0007
   - slope-a
+  - isometric_0008
   - stairs-border
   - tile-half-2
   - EnemyPreferredPathTile

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,10 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class PlayerControl : MonoBehaviour
 {
-
-    private Player player;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private Transform weaponShootPosition; 
+    private Player player;
+   
 
     private void Awake()
     {
@@ -18,7 +20,30 @@ public class PlayerControl : MonoBehaviour
     private void Update()
     {
         MovementInput();
+
+        AimInput();
+
     }
+
+    private void AimInput()
+    {
+        
+        float playerAngleDegrees;
+        AimDirection playerAimDirection;
+
+        AimInput( out playerAngleDegrees, out playerAimDirection);
+    }
+
+    private void AimInput( out float playerAngleDegrees, out AimDirection playerAimDirection)
+    {
+        Vector3 mouseWorldPosition = AimHelperUtilities.GetMouseWorldPosition();
+        Vector3 playerDirection = (mouseWorldPosition - transform.position);
+        playerAngleDegrees = AimHelperUtilities.GetAngleFromVector(playerDirection);
+        playerAimDirection = AimHelperUtilities.GetAimDirection(playerAngleDegrees);
+
+        player.AimWeaponEvent.CallAimWeaponEvent(playerAngleDegrees, playerAimDirection);
+    }
+
     private void MovementInput()
     {
         float horizontalMovement = Input.GetAxisRaw("Horizontal");

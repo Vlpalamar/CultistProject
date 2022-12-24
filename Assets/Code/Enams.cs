@@ -8,3 +8,16 @@ public enum GameState
     playingTheGame
 
 }
+
+public enum AimDirection
+{
+    top,
+    topRight,
+    right,
+    downRight,
+    down,
+    downLeft,
+    left,
+    topLeft,
+    
+}

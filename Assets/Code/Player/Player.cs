@@ -12,6 +12,8 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(MovementByVelocity))]
 [RequireComponent(typeof(MovementByVelocityEvent))]
+[RequireComponent(typeof(AimWeapon))]
+[RequireComponent(typeof(AimWeaponEvent))]
 
 [RequireComponent(typeof(PlayerControl))]
 public class Player : MonoBehaviour
@@ -22,8 +24,10 @@ public class Player : MonoBehaviour
     private Animator animator;
     private PlayerDetailsSO playerDetails;
     private MovementByVelocityEvent movementByVelocityEvent;
+    private AimWeaponEvent aimWeaponEvent;
     private PlayerControl playerControl;
     public MovementByVelocityEvent MovementByVelocityEvent { get => movementByVelocityEvent;}
+    public AimWeaponEvent AimWeaponEvent { get => aimWeaponEvent; }
 
     //private PlayerControll playerControll;
 
@@ -35,25 +39,22 @@ public class Player : MonoBehaviour
         health = GetComponent<Health>();
         playerControl= GetComponent<PlayerControl>();
         movementByVelocityEvent = GetComponent<MovementByVelocityEvent>();
+        aimWeaponEvent = GetComponent<AimWeaponEvent>();
 
     }
-    private void Start()
-    {
-       
-       
-    }
+    
 
     public void Initialize(PlayerDetailsSO playerDetails)
     {
         this.playerDetails = playerDetails;
-        print(playerDetails);
+       
         SetPlayerHealth();
     }
 
     private void SetPlayerHealth()
     {
-        print(playerDetails.PlayerStartHealth);
-        print(health);
+
+        //print(health);
         health.SetStartingHealth(playerDetails.PlayerStartHealth);
     }
 }

@@ -24,7 +24,7 @@ public class LocationBuilder : MonoBehaviour
 
         for (int i = 0; i < locations[actualLocationIndex].areasOfEvents.Count; i++)
         {
-            print(i);
+            //print(i);
             if (i%2==0)
             {
                 
@@ -65,7 +65,7 @@ public class LocationBuilder : MonoBehaviour
             if (eventSO.proportions == currentAreaProportion)
             {
                 tmpEvents.Add(eventSO);
-                print(eventSO.proportions);
+               // print(eventSO.proportions);
             }
         }
         return tmpEvents;
@@ -76,7 +76,7 @@ public class LocationBuilder : MonoBehaviour
         Vector2Int CurrentAreaProportion=
             new Vector2Int(Mathf.Abs(currentAreaUpperLeftPoint.x - currentAreaLowerRightPoint.x) + 1
                     ,Mathf.Abs(currentAreaUpperLeftPoint.y - currentAreaLowerRightPoint.y) + 1);
-        print(CurrentAreaProportion);
+       // print(CurrentAreaProportion);
         return CurrentAreaProportion;
     }
 
