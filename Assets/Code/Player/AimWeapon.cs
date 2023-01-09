@@ -40,7 +40,8 @@ public class AimWeapon : MonoBehaviour
     private void Aim(AimDirection aimDirection, float aimAngle)
     {
         weaponCursorPointTransorm.eulerAngles = new Vector3(0f, 0f, aimAngle);
-        
+        //смена анимации на нужное направление
+
 
     }
 

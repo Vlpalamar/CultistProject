@@ -9,37 +9,52 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(PlayerHealth))]
 [RequireComponent(typeof(MovementByVelocity))]
 [RequireComponent(typeof(MovementByVelocityEvent))]
 [RequireComponent(typeof(AimWeapon))]
 [RequireComponent(typeof(AimWeaponEvent))]
+[RequireComponent(typeof(CurrentWeapon))]
+[RequireComponent(typeof(Roll))]
+[RequireComponent(typeof(RollEvent))]
 
 [RequireComponent(typeof(PlayerControl))]
 public class Player : MonoBehaviour
 {
     private BoxCollider2D boxCollider;
     private Rigidbody2D rigidbody;
-    private Health health;
+    private PlayerHealth health;
     private Animator animator;
     private PlayerDetailsSO playerDetails;
     private MovementByVelocityEvent movementByVelocityEvent;
     private AimWeaponEvent aimWeaponEvent;
     private PlayerControl playerControl;
+    private CurrentWeapon weapon;
+    private Roll roll;
+    private RollEvent rollEvent;
+
+
     public MovementByVelocityEvent MovementByVelocityEvent { get => movementByVelocityEvent;}
     public AimWeaponEvent AimWeaponEvent { get => aimWeaponEvent; }
+    public CurrentWeapon Weapon { get => weapon; set => weapon = value; }
+    public Roll Roll { get => roll; }
+    public RollEvent RollEvent { get => rollEvent;  }
+    public Rigidbody2D Rigidbody { get => rigidbody; set => rigidbody = value; }
 
     //private PlayerControll playerControll;
 
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-        rigidbody = GetComponent<Rigidbody2D>();
+        Rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        health = GetComponent<Health>();
+        health = GetComponent<PlayerHealth>();
         playerControl= GetComponent<PlayerControl>();
         movementByVelocityEvent = GetComponent<MovementByVelocityEvent>();
         aimWeaponEvent = GetComponent<AimWeaponEvent>();
+        weapon = GetComponent<CurrentWeapon>();
+        roll = GetComponent <Roll>();
+        rollEvent = GetComponent<RollEvent>();
 
     }
     

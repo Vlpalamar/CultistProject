@@ -30,7 +30,7 @@ public class PoolManager : SingletonMonoBehaviour<PoolManager>
 
     private void Start()
     {
-       
+        if (_poolArray.Length>0)
         for (int i = 0; i < _poolArray.Length; i++)
         {
             CreatePool(_poolArray[i].prefab, _poolArray[i].poolSize, _poolArray[i].componentType);

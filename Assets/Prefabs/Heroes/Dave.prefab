@@ -18,6 +18,11 @@ GameObject:
   - component: {fileID: 6404920001584136473}
   - component: {fileID: 357461805756458170}
   - component: {fileID: 8534174285139747510}
+  - component: {fileID: 2344366311979621306}
+  - component: {fileID: 7316978174670421590}
+  - component: {fileID: 3796109866630815252}
+  - component: {fileID: 3825693289418854886}
+  - component: {fileID: 5071553852635718379}
   m_Layer: 9
   m_Name: Dave
   m_TagString: Player
@@ -151,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10afaf5f6b0f09c45a530864a28ab9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthDetails: {fileID: 11400000, guid: cce4c05dff6f04b44b9c982cd85a2c48, type: 2}
 --- !u!114 &9145229966080993137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,4 +225,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74044904b550f2449a05ab393534891a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 4
+--- !u!114 &2344366311979621306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5158033405188567524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f959bacf9179e0e44a3cacb8b101cccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7316978174670421590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5158033405188567524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0893943f16d2ed040a12e72fd9a061b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponCursorPointTransorm: {fileID: 0}
+--- !u!114 &3796109866630815252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5158033405188567524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b579d48769376fa4da1326cdde9d0905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3825693289418854886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5158033405188567524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba9f9c41c2fd7034eb3c5643824e7fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5071553852635718379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5158033405188567524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202b2b483ea23ec4eb3cf7faf16827a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountOfRolls: 3
+  rollSpeed: 15
+  rollDistance: 3
+  globalRollCooldown: 5
+  localRollCooldown: 1
