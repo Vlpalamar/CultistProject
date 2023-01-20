@@ -7,10 +7,11 @@ public abstract class Health : MonoBehaviour
 
     [SerializeField] protected HealthDetailsSO healthDetails;
 
-    protected int currentHealth;
+    [SerializeField]protected float currentHealth;
 
-    public virtual void GetDamage(int damage)
+    public virtual void GetDamage(float damage)
     {
+        print("HIT");
         if (currentHealth-damage>0)
             currentHealth = currentHealth - damage;
         else

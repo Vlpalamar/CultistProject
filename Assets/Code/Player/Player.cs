@@ -21,6 +21,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerControl))]
 public class Player : MonoBehaviour
 {
+    [SerializeField]private MovementDetailsSO movementDetails;
+
     private BoxCollider2D boxCollider;
     private Rigidbody2D rigidbody;
     private PlayerHealth health;
@@ -40,6 +42,7 @@ public class Player : MonoBehaviour
     public Roll Roll { get => roll; }
     public RollEvent RollEvent { get => rollEvent;  }
     public Rigidbody2D Rigidbody { get => rigidbody; set => rigidbody = value; }
+    public MovementDetailsSO MovementDetails { get => movementDetails;}
 
     //private PlayerControll playerControll;
 

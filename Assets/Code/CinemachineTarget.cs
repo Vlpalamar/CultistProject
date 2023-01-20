@@ -42,7 +42,7 @@ public class CinemachineTarget : MonoBehaviour
 
     private void Update()
     {
-        _cursorTarget.position = AimHelperUtilities.GetMouseWorldPosition();
+        _cursorTarget.position = HelperUtilities.GetMouseWorldPosition();
     }
 
 }

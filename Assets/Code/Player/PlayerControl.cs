@@ -7,18 +7,13 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class PlayerControl : MonoBehaviour
 {
-    #region Roll Details
-    [Space(10)]
-    [Header("Move Details")]
-    #endregion
-    [SerializeField] private float moveSpeed;
+ 
     // [SerializeField] private Transform weaponShootPosition; 
 
-   
 
-
-    private Coroutine playerRollCoroutine;
-    private WaitForFixedUpdate waitForFixedUpdate;
+    private Coroutine _playerRollCoroutine;
+    private WaitForFixedUpdate _waitForFixedUpdate;
+    public AimDirection _aimDirection;
     
 
     private Player _player;
@@ -26,7 +21,7 @@ public class PlayerControl : MonoBehaviour
 
     private void Start()
     {
-        waitForFixedUpdate = new WaitForFixedUpdate();
+        _waitForFixedUpdate = new WaitForFixedUpdate();
     }
 
     private void Awake()
@@ -48,25 +43,31 @@ public class PlayerControl : MonoBehaviour
 
     private void WeaponUse()
     {
+
+       
+        if (_player.Weapon.Weapon == null) return;
+
+        
+        
         if (Input.GetKey(KeyCode.Mouse0))
-            _player.Weapon.Use();      
+            _player.Weapon.Use(_aimDirection);      
     }
 
     private void AimInput()
     {
         
         float playerAngleDegrees;
-        AimDirection playerAimDirection;
+        
 
-        AimInput( out playerAngleDegrees, out playerAimDirection);
+        AimInput( out playerAngleDegrees, out _aimDirection);
     }
 
     private void AimInput( out float playerAngleDegrees, out AimDirection playerAimDirection)
     {
-        Vector3 mouseWorldPosition = AimHelperUtilities.GetMouseWorldPosition();
+        Vector3 mouseWorldPosition = HelperUtilities.GetMouseWorldPosition();
         Vector3 playerDirection = (mouseWorldPosition - transform.position);
-        playerAngleDegrees = AimHelperUtilities.GetAngleFromVector(playerDirection);
-        playerAimDirection = AimHelperUtilities.GetAimDirection(playerAngleDegrees);
+        playerAngleDegrees = HelperUtilities.GetAngleFromVector(playerDirection);
+        playerAimDirection = HelperUtilities.GetAimDirection(playerAngleDegrees);
 
         _player.AimWeaponEvent.CallAimWeaponEvent(playerAngleDegrees, playerAimDirection);
     }
@@ -87,7 +88,7 @@ public class PlayerControl : MonoBehaviour
         {
             if (!isSpaceButtonDown)
             {
-                _player.MovementByVelocityEvent.CallMovementByVelocityEvent(direction, moveSpeed);
+                _player.MovementByVelocityEvent.CallMovementByVelocityEvent(direction, _player.MovementDetails.MoveSpeed);
             }
             else
             {
@@ -119,7 +120,7 @@ public class PlayerControl : MonoBehaviour
     {
         print(_player.Roll.RollsRemaining);
 
-        playerRollCoroutine = StartCoroutine(PlayerRollRoutine(direction));
+        _playerRollCoroutine = StartCoroutine(PlayerRollRoutine(direction));
 
     }
 
@@ -135,7 +136,7 @@ public class PlayerControl : MonoBehaviour
         {
             _player.RollEvent.CallOnRollEvent(_player.transform.position, targetPosition, direction, _player.Roll.RollSpeed, _player.Roll.IsRolling);
             
-            yield return waitForFixedUpdate;
+            yield return _waitForFixedUpdate;
             i++;
 
         }

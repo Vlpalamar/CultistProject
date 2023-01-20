@@ -14,17 +14,19 @@ public class InstantiatedEvent : MonoBehaviour
     private const string FRONTTILEMAPTAG = "FrontTileMap";
     private const string COLLISIONTILEMAPTAG = "ColisionTileMap";
     private const string MINIMAPTILEMAPTAG = "MinimapTileMap";
+    private const string AIMOVEMENT = "AIMovement"; 
 
 
     #endregion
 
-    [HideInInspector] public Grid grid;
+     [HideInInspector] public Grid grid;
     [HideInInspector] public Tilemap groundTileMap;
     [HideInInspector] public Tilemap decoration1TileMap;
     [HideInInspector] public Tilemap decoration2TileMap;
     [HideInInspector] public Tilemap frontTileMap;
     [HideInInspector] public Tilemap collisionTileMap;
     [HideInInspector] public Tilemap minimapTileMap;
+    [HideInInspector] public Tilemap aiMovement;
     [HideInInspector] public Bounds bounds;
     public Transform gameObjectLocationTransform;
     private BoxCollider2D boxCollider2D;
@@ -53,6 +55,7 @@ public class InstantiatedEvent : MonoBehaviour
         grid = roomGameObject.GetComponentInChildren<Grid>();
 
         Tilemap[] tilemaps = roomGameObject.GetComponentsInChildren<Tilemap>();
+        
 
         foreach (Tilemap tilemap in tilemaps)
         {
@@ -80,13 +83,18 @@ public class InstantiatedEvent : MonoBehaviour
             {
                 minimapTileMap = tilemap;
             }
+            if (tilemap.gameObject.CompareTag(AIMOVEMENT))
+            {
+                aiMovement = tilemap;
+            }
+
 
         }
     }
 
-    private void DisableCollisionTilemapRenderer()
+    public void DisableCollisionTilemapRenderer()
     {
-        collisionTileMap.gameObject.GetComponent<TilemapRenderer>().enabled = false;
+        aiMovement.gameObject.GetComponent<TilemapCollider2D>().enabled = false;
     }
 
 }

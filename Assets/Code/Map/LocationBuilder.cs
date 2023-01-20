@@ -11,12 +11,20 @@ public class LocationBuilder : MonoBehaviour
    public LocationSO GenerateLocation()
    {
         actualLocationIndex = Random.Range(0, locations.Count);
-        Instantiate(locations[actualLocationIndex].locationPrefab, new Vector3(0, 0, 0), Quaternion.identity, transform);   
+        GameObject currentLocation =  Instantiate(locations[actualLocationIndex].locationPrefab, new Vector3(0, 0, 0), Quaternion.identity, transform);
+        DisableCollidersFromAILayer(currentLocation);
         InstantiateEventGameObjects();
         return locations[actualLocationIndex];
 
 
    }
+
+    private void DisableCollidersFromAILayer(GameObject currentLocation)
+    {
+        InstantiatedEvent instantiated= currentLocation.GetComponentInChildren<InstantiatedEvent>();
+
+        instantiated.Initialise(currentLocation.GetComponentInChildren<Grid>().gameObject);
+    }
 
     public void InstantiateEventGameObjects()
     {
