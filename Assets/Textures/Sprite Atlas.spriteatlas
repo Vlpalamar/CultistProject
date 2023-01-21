@@ -56,6 +56,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6d7f43715b5262d42ace18ddf5fe3cec, type: 3}
   - {fileID: 21300000, guid: b6548471931e44419bb578976f69c7ba, type: 3}
   - {fileID: 21300000, guid: abc037715b8d96d4fa8b493c9986cf2c, type: 3}
+  - {fileID: 21300000, guid: ad1eed02f32e97a4595d4a05ccaf04b9, type: 3}
   - {fileID: 21300000, guid: 86135572fe4fe144aa42fcfaf4fb19fc, type: 3}
   - {fileID: -2595652573297624611, guid: aa4436a2d8907bd43bdd244f56a3aafe, type: 3}
   - {fileID: 8626994336844107279, guid: aa4436a2d8907bd43bdd244f56a3aafe, type: 3}
@@ -116,6 +117,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 8b08bcd21cb8a42fba868f390b68099b, type: 3}
   - {fileID: 21300000, guid: 6b19fa030e22a4aa7a4ebc2029911cf4, type: 3}
   - {fileID: 21300000, guid: b121dc43358bd07428d9d72fb1cb4511, type: 3}
+  - {fileID: 21300000, guid: e8db68d3c1c72fa4683fd7ce1cb222d4, type: 3}
+  - {fileID: 21300000, guid: 6ae37c14c48e1d24ebacf139ba0d2b2b, type: 3}
   - {fileID: 21300000, guid: 3b9c38445f15341d3a30049b1e724d7c, type: 3}
   - {fileID: 21300000, guid: 5a34d9a4a7a31ad4aa2cf971d8164ab5, type: 3}
   - {fileID: 21300000, guid: 063edbe48872b4ab39d61247bfbc7217, type: 3}
@@ -139,6 +142,7 @@ SpriteAtlas:
   - Shader Test Colours
   - tile-border-horizontal
   - Collision Tile
+  - IMG_1844
   - Minimap Wall
   - Shading_15
   - Shading_14
@@ -199,6 +203,8 @@ SpriteAtlas:
   - tile-border-right
   - tile-border-top
   - isometric_0007
+  - "\u041C\u0435\u0447 (2)"
+  - "\u043A\u0430\u043C\u0456\u043D\u044C"
   - slope-a
   - isometric_0008
   - stairs-border

@@ -11,7 +11,7 @@ public class Node : IComparable<Node>
     private Node parentNode;
 
 
-    public Vector2Int GridPosition { get => gridPosition;  }
+    public Vector2Int GridPosition { get => gridPosition;  set=> gridPosition= value; }
 
     public int HCost { get => hCost; set => hCost = value; }
     public Node ParentNode { get => parentNode; set => parentNode = value; }

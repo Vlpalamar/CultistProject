@@ -10,6 +10,8 @@ public static class Settings
     public const int preferredPathAStarMovementPenalty = 1;
     public const float playerMoveDistanceToRebuildPath = 5f;
     public const float enemyPathRebuildCooldown = 1f;
+    public const int defoultAStarPenalty = 40;
+
 
     #endregion
 }
