@@ -455,5 +455,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04196fd4e25de7541b6ced7949935d85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogues: []
-  nothingToSayDialogues: []
+  "_dialogBoxAlpha\u0421hannelForShow": 0.7
+  _dialogBoxSpeed: 5
+  _lettersAddingToTextSpeed: 0.09
+  dialogues:
+  - replics:
+    - 'Dialog 1 replic 1 '
+    - Dialog 1 replic 2
+    - Dialog 1 replic 3
+  - replics:
+    - 'Dialog 2 replic 1 '
+    - Dialog 2 replic 2
+    - Dialog 2 replic 3
+  nothingToSayDialogues:
+  - replics:
+    - Hm....
+    - I have nothing to say you yet
+    - Ah?

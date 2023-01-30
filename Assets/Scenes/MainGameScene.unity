@@ -891,7 +891,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 0
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1092,78 +1092,6 @@ PrefabInstance:
     - target: {fileID: 5199004526406948353, guid: b62a8f789f9c05145a803df55b495163, type: 3}
       propertyPath: m_Name
       value: TestNpc
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: _dialogBoxSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: dialogues.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: "dialogBoxAlpha\u0421hannel"
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: _lettersAddingToTextSpeed
-      value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: "_dialogBoxAlpha\u0421hannelForShow"
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: nothingToSayDialogues.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: dialogues.Array.data[0].replics.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: dialogues.Array.data[1].replics.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: dialogues.Array.data[0].replics.Array.data[0]
-      value: 'Dialog 1 replic 1 '
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: dialogues.Array.data[0].replics.Array.data[1]
-      value: Dialog 1 replic 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: dialogues.Array.data[0].replics.Array.data[2]
-      value: Dialog 1 replic 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: dialogues.Array.data[1].replics.Array.data[0]
-      value: 'Dialog 2 replic 1 '
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: dialogues.Array.data[1].replics.Array.data[1]
-      value: Dialog 2 replic 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: dialogues.Array.data[1].replics.Array.data[2]
-      value: Dialog 2 replic 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: nothingToSayDialogues.Array.data[0].replics.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: nothingToSayDialogues.Array.data[0].replics.Array.data[0]
-      value: Hm....
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: nothingToSayDialogues.Array.data[0].replics.Array.data[1]
-      value: I have nothing to say you yet
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
-      propertyPath: nothingToSayDialogues.Array.data[0].replics.Array.data[2]
-      value: Ah?
       objectReference: {fileID: 0}
     - target: {fileID: 5199004526406948358, guid: b62a8f789f9c05145a803df55b495163, type: 3}
       propertyPath: m_RootOrder
