@@ -13,7 +13,7 @@ public  class AStar  :SingletonMonoBehaviour<AStar>
     private Queue<Vector2Int> readyStack = new Queue<Vector2Int>();
     private Grid grid;
     private List<Tilemap> obsteclLayers= new List<Tilemap>();
-    private Dictionary<Vector2Int,int > aStarMovementPenaltyDictionary = new Dictionary<Vector2Int, int>() ;
+    private List<Vector2Int > aStarMovementPenaltyDictionary = new List<Vector2Int>() ;
 
 
 
@@ -26,6 +26,8 @@ public  class AStar  :SingletonMonoBehaviour<AStar>
         }
             
     }
+
+    public List<Vector2Int> AStarMovementPenaltyDictionary { get => aStarMovementPenaltyDictionary;  }
 
     //public AStar()
     //{
@@ -46,12 +48,10 @@ public  class AStar  :SingletonMonoBehaviour<AStar>
         _isOver = false;
 
         readyStack.Clear();
-        
+        int i = 0;
         do
         {
-
-           
-           
+            i++;
             //посчитать до конца
             _activeNode.HCost = GetDistance(_activeNode.GridPosition, endGridPosition);
 
@@ -68,8 +68,8 @@ public  class AStar  :SingletonMonoBehaviour<AStar>
             readyStack.Enqueue(_activeNode.GridPosition);
 
 
-        } while (!_isOver );
-
+        } while (!_isOver && i <100) ;
+        Debug.Log(i);
         Debug.Log("Done");
         return readyStack;
     }
@@ -126,29 +126,35 @@ public  class AStar  :SingletonMonoBehaviour<AStar>
                     continue;
 
                 Node node = new Node(new Vector2Int(x, y));
-                int nodePenalty = CheckNodeIsObstacle(node);
-                
+                if (CheckNodeIsObstacle(node))
+                    continue;
 
-                //проверка на то относятся ли они к валидной клетке 
-                //print("populate");
-                
+                if (AlreadyInList(node))
+                    continue;
+
                 node.HCost = GetDistance(node.GridPosition, endGridPosition);
-                node.GCost = GetDistance(currentNode.GridPosition, node.GridPosition)+currentNode.GCost + nodePenalty;
+                node.GCost = GetDistance(currentNode.GridPosition, node.GridPosition)+currentNode.GCost ;
                 node.ParentNode = currentNode;
 
-                
-
                     _openList.Add(node);
-
             }
         }
     }
 
-    private int CheckNodeIsObstacle(Node node)
+    private bool AlreadyInList(Node node)
     {
-        if (aStarMovementPenaltyDictionary.ContainsKey(node.GridPosition))
-            return 0;
-        else return Settings.defoultAStarMovementPenalty;
+        if (readyStack.Contains(node.GridPosition))
+            return true;
+        else
+            return false;
+    }
+
+    public bool CheckNodeIsObstacle(Node node)
+    {
+        if (aStarMovementPenaltyDictionary.Contains(node.GridPosition))
+            return true;
+        else 
+            return false;
     }
 
     int GetDistance(Vector2Int nodeA, Vector2Int nodeB)
@@ -166,22 +172,12 @@ public  class AStar  :SingletonMonoBehaviour<AStar>
     {
         foreach (var tilemap in obsteclLayers)
         {
-            BoundsInt bounds = tilemap.cellBounds;
-            TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
-            for (int x = 0; x < bounds.size.x; x++)
+            foreach (var pos in tilemap.cellBounds.allPositionsWithin)
             {
-                for (int y = 0; y < bounds.size.y; y++)
+                Vector3Int localPlace = new Vector3Int(pos.x, pos.y, pos.z);
+                if (tilemap.HasTile(localPlace))
                 {
-                    TileBase tile = allTiles[x + y * bounds.size.x];
-                    if (tile != null)
-                    {
-                        if (aStarMovementPenaltyDictionary.ContainsKey(new Vector2Int(x, y))) 
-                            continue;
-                        else
-                            aStarMovementPenaltyDictionary.Add(new Vector2Int(x, y), 0);
-                    }
-
-
+                    aStarMovementPenaltyDictionary.Add((Vector2Int)localPlace);
                 }
             }
         }

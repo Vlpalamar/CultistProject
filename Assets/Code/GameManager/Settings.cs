@@ -5,6 +5,9 @@ using UnityEngine;
 public static class Settings 
 {
 
+    public const KeyCode KeyCode_Use = KeyCode.E;
+
+
     #region ASTAR PATHFINDING PARAMS
     public const int defoultAStarMovementPenalty = 40;
     public const int preferredPathAStarMovementPenalty = 1;

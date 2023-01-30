@@ -126,12 +126,15 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1e100c655539c4940865adc0c42af0ee, type: 3}
   - {fileID: 21300000, guid: 0c1b3d96aae0e944ba3249732c630651, type: 3}
   - {fileID: 21300000, guid: 2abfa0b69193b46c4b7848a29c8a3c6f, type: 3}
+  - {fileID: 21300000, guid: e5110fd8f5afe0c4d96584b8a1ecff00, type: 3}
   - {fileID: 21300000, guid: 94141c29fdd77cc4187800dd98d88dad, type: 3}
   - {fileID: 21300000, guid: a776d11a6af034008bdcb032763c4c4c, type: 3}
+  - {fileID: 21300000, guid: 3863612b47acfda419caa0c12f9159ff, type: 3}
   - {fileID: 21300000, guid: cd8a00ab8c9644c449810e6556ee77f8, type: 3}
   - {fileID: 21300000, guid: bac2a5cbe35544f45a76cd9c601b078f, type: 3}
   - {fileID: 21300000, guid: 83b9904c54dbe4b8ba227406b0a259c3, type: 3}
   - {fileID: 21300000, guid: 6ecbc79c1c7e0fc42aa7d1cb7f72f0ec, type: 3}
+  - {fileID: 21300000, guid: 11b5c91d7990d58498f1c669c5c48822, type: 3}
   - {fileID: 21300000, guid: 4a84cc2d487664161aacd5a7f6e84df8, type: 3}
   - {fileID: 21300000, guid: 0abb9ebd523b87f40b7e21bdeb3648f9, type: 3}
   - {fileID: 21300000, guid: e308331e58a9f474a89006337eb33d3e, type: 3}
@@ -212,12 +215,15 @@ SpriteAtlas:
   - EnemyPreferredPathTile
   - "\u0431\u043B\u043E\u043A"
   - tile-wall-2
+  - IMG_1907
   - Minimap Floor
   - tile-half-3
+  - IMG_1911
   - tile-half-4
   - Half Height Collision Tile
   - tile-full
   - "\u0442\u0430\u0439\u043B \u0437\u0435\u043C\u043B\u0438 \u0441 \u0442\u0440\u0430\u0432\u043E\u0439"
+  - IMG_1912
   - tile-half-1
   - pngegg
   - tile-wall-1

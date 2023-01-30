@@ -137,7 +137,7 @@ public class LocationBuilder : MonoBehaviour
                         instantiatedEvent.gameObjectLocationTransform.position= tilemap.CellToLocal(new Vector3Int(xPos+ eventOffsetX, yPos+eventOffsetY,0));
                     }
                 }
-                
+                 
                 
             }
         }

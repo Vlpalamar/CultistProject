@@ -57,8 +57,6 @@ public class EnemyMovementAI : MonoBehaviour
 
         if (_currentEnemyPathRebuildColdown <= 0f || (Vector3.Distance(_player.transform.position, _playerPosition) > Settings.playerMoveDistanceToRebuildPath))
         {
-            
-            
             _currentEnemyPathRebuildColdown = Settings.enemyPathRebuildCooldown;
 
             _playerPosition = _player.transform.position;
@@ -93,7 +91,7 @@ public class EnemyMovementAI : MonoBehaviour
             Vector2 nextStep = AStar.Instance.Grid.CellToWorld(newVector);
 
             print("nextPosition:"+ nextStep);
-            while (Vector2.Distance(nextStep, transform.position)>0.1f)
+            while (Vector2.Distance(nextStep, transform.position)>0.2f)
             {
                 _enemy.MoveToPosition.CallOnMoveToPositionEvent(transform.position, nextStep, (nextStep - (Vector2)transform.position).normalized, moveSpeed);
 
@@ -114,7 +112,7 @@ public class EnemyMovementAI : MonoBehaviour
 
         Vector2Int playerGridPosition = (Vector2Int)AStar.Instance.Grid.WorldToCell(_player.transform.position);
 
-        
+        Vector2Int playerPos = GetNearestNonObstaclePlayerPosition(playerGridPosition);
 
         _movementSteps = AStar.Instance.BuidlPath(ennemyGridPosition, playerGridPosition);
 
@@ -122,17 +120,45 @@ public class EnemyMovementAI : MonoBehaviour
            _movementSteps.Dequeue();
         
         else
-        {
             _player.Rigidbody.velocity = new Vector2(0, 0);
-        }
+        
     }
 
 
 
-    //private Vector2Int GetNearestNonObstaclePlayerPosition()
-    //{
-    //    Vector3 playerPosition = _player.transform.position;
-    //    Vector3Int playerCellPosition = AStar.Instance.Grid.WorldToCell(playerPosition);
+    private Vector2Int GetNearestNonObstaclePlayerPosition(Vector2Int playerGridPosition)
+    {
+        Vector3Int playerPosition = (Vector3Int) playerGridPosition;
+        Vector3Int playerCellPosition = AStar.Instance.Grid.WorldToCell(playerPosition);
 
-    //}
-}       
+        if (AStar.Instance.AStarMovementPenaltyDictionary.Contains(new Vector2Int(playerCellPosition.x, playerCellPosition.y)))
+        {
+            return (Vector2Int) playerCellPosition;
+        }
+        else
+        {
+            for (int i = -1; i <=1; i++)
+            {
+                for (int j = -1; j <= 1; j++)
+                {
+                    if (j == 0 && i == 0)
+                        continue;
+                    try
+                    {
+                        if (!AStar.Instance.AStarMovementPenaltyDictionary.Contains(new Vector2Int(playerCellPosition.x + i, playerCellPosition.y + j)))
+                            return new Vector2Int(playerCellPosition.x + i, playerCellPosition.y + j);
+                    }
+                    catch (Exception)
+                    {
+
+                        continue;
+                    }
+
+                }
+                          
+            }
+        }
+        return (Vector2Int)playerCellPosition;
+
+    }
+}

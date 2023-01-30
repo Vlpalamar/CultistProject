@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 7080457108449874893}
   - component: {fileID: 7080457108449874892}
   - component: {fileID: 7080457108449874895}
+  - component: {fileID: 2099013507350360298}
+  - component: {fileID: 1553911021529867668}
+  - component: {fileID: 8936761717063240834}
   m_Layer: 9
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -115,10 +118,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.11394739, y: -0.6348486}
+  m_Offset: {x: 0.08499551, y: 0.7771064}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1.5033333, y: 2.5766666}
     newSize: {x: 1.5033333, y: 2.5766666}
     adaptiveTilingThreshold: 0.5
@@ -126,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0976691, y: 0.7721052}
+  m_Size: {x: 0.26074362, y: 0.42539477}
   m_EdgeRadius: 0
 --- !u!50 &7080457108449874892
 Rigidbody2D:
@@ -161,3 +164,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b55c61796f698342b9e1968d46cabe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetails: {fileID: 11400000, guid: 6b958187945de9247998794fb7413708, type: 2}
+--- !u!114 &2099013507350360298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080457108449874894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094afb6a39dfbe946ba0c206f4e991f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1553911021529867668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080457108449874894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe5bab14a6b9064dae95eb0a1914d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8936761717063240834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080457108449874894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b35a63c0f4681e45b50cf8cdea1a5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementDetails: {fileID: 11400000, guid: b0e508d0a3093ad4596544f6544c402b, type: 2}
