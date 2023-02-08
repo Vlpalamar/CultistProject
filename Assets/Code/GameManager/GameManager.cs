@@ -18,7 +18,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     protected override void Awake()
     {
         base.Awake();
-        playerDetails = Resources.Load<CurrentPlayerSO>("CurrentPlayer_").PlayerDetails;
+        playerDetails = HelperUtilities.GameResources.currentPlayerDetails;
         InstantiatePlayer();
 
 
@@ -65,6 +65,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void InstantiatePlayer()
     {
+        
         GameObject playerGameObject = Instantiate(playerDetails.PlayerPrefab);
         print(playerGameObject);
         player = playerGameObject.GetComponent<Player>();

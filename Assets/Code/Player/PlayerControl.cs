@@ -7,13 +7,20 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class PlayerControl : MonoBehaviour
 {
- 
+
     // [SerializeField] private Transform weaponShootPosition; 
 
-
+    #region Aim circle Details
+    [Header("Aim circle Details")]
+    [Space(10)]
+    #endregion
+    [SerializeField]
+    
     private Coroutine _playerRollCoroutine;
     private WaitForFixedUpdate _waitForFixedUpdate;
     public AimDirection _aimDirection;
+    
+
     
 
     private Player _player;
@@ -43,14 +50,12 @@ public class PlayerControl : MonoBehaviour
 
     private void WeaponUse()
     {
-
-       
-        if (_player.Weapon.Weapon == null) return;
-
-        
+        if (_player.Weapon.Weapon == null) return;   
         
         if (Input.GetKey(KeyCode.Mouse0))
             _player.Weapon.Use(_aimDirection);      
+
+
     }
 
     private void AimInput()
@@ -60,6 +65,7 @@ public class PlayerControl : MonoBehaviour
         
 
         AimInput( out playerAngleDegrees, out _aimDirection);
+
     }
 
     private void AimInput( out float playerAngleDegrees, out AimDirection playerAimDirection)

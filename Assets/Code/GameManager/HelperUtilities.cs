@@ -6,6 +6,25 @@ using UnityEngine;
 public  class HelperUtilities : MonoBehaviour
 {
     private static Camera mainCamera;
+
+    private static GameResources gameResources;
+
+    public static GameResources GameResources
+    {
+        get 
+        {
+            if (gameResources==null)
+            {
+                gameResources = Resources.Load<GameResources>("GameResources_");
+                return gameResources;
+            }
+            else
+            {
+                return gameResources;
+            }
+        }  
+    }
+
     public static Vector3 GetMouseWorldPosition()
     {
         if (mainCamera == null) mainCamera = Camera.main;
@@ -45,6 +64,13 @@ public  class HelperUtilities : MonoBehaviour
         float degrees = radians * Mathf.Rad2Deg;
 
         return degrees;
+    }
+
+    public static float LinearToDecibels(int liner)
+    {
+        float linerScaleRange = 20f;
+
+        return Mathf.Log10((float)liner / linerScaleRange) * 20f;
     }
 
     public static AimDirection GetAimDirection(float playerAngleDegrees)

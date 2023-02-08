@@ -458,17 +458,25 @@ MonoBehaviour:
   "_dialogBoxAlpha\u0421hannelForShow": 0.7
   _dialogBoxSpeed: 5
   _lettersAddingToTextSpeed: 0.09
-  dialogues:
+  allDialogues:
   - replics:
-    - 'Dialog 1 replic 1 '
-    - Dialog 1 replic 2
-    - Dialog 1 replic 3
+    - Dialog 1, frase 1
+    - Dialog 1, frase 2
+    - Dialog 1, frase 3
+    isOpen: 1
   - replics:
-    - 'Dialog 2 replic 1 '
-    - Dialog 2 replic 2
-    - Dialog 2 replic 3
+    - Dialog 2, frase 1
+    - Dialog2, frase 2
+    - Dialog 2, frase 3
+    isOpen: 0
+  - replics:
+    - Dialog 3, frase 1
+    - Dialog3, frase 2
+    - Dialog 3, frase 3
+    isOpen: 0
   nothingToSayDialogues:
   - replics:
     - Hm....
     - I have nothing to say you yet
     - Ah?
+    isOpen: 0

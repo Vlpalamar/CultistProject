@@ -44,15 +44,14 @@ public abstract class NPC : MonoBehaviour
 
 
 
-    [SerializeField] List<dialogue> dialogues = new List<dialogue>();
-    [SerializeField] List<dialogue> nothingToSayDialogues= new List<dialogue>();
-
+    [SerializeField] List<Dialogue> allDialogues = new List<Dialogue>();
+    [SerializeField] List<Dialogue> nothingToSayDialogues= new List<Dialogue>();
+    List<Dialogue> openDialogues = new List<Dialogue>();
    
 
    
     private WaitForFixedUpdate _waitForFixedUpdate;
 
-    private int _allowDialogues = 2;
     private int _diaIndex=0;
     private int _replicIndex = 0;
     private bool _isReadyToTalk = false;
@@ -79,12 +78,12 @@ public abstract class NPC : MonoBehaviour
                     _isReadyToNextReplic = true;
                 
 
-                if (dialogues.Count==0|| _isDialogueOnGoing ==true) return;
+                if (allDialogues.Count==0|| _isDialogueOnGoing ==true) return;
 
                 ShowDialogBox();
                
-                if (_allowDialogues> _diaIndex)
-                    StartTheDialogue(dialogues[_diaIndex], _replicIndex);
+                if (openDialogues.Count> _diaIndex)
+                    StartTheDialogue(openDialogues[_diaIndex], _replicIndex);
 
                 else
                 {
@@ -120,8 +119,20 @@ public abstract class NPC : MonoBehaviour
         _dialogBox.gameObject.SetActive(false);
 
 
+        for (int i = 0; i < allDialogues.Count; i++)
+        {
+            if (allDialogues[i].isOpen)
+            {
+                openDialogues.Add(allDialogues[i]);
+            }
+            
+        }
+        
+
+
         _fadeDialogBoxRoutine = StartCoroutine(FadeDialogBoxRoutine());
 
+        UnlockNewDialogue(1);
     }
 
     private void ShowDialogBox()
@@ -176,7 +187,7 @@ public abstract class NPC : MonoBehaviour
         _isDialogueOnGoing = true;
         _addingLetterRoutine = StartCoroutine(AddTextRoutine(replic));
     }
-    private void StartTheDialogue(dialogue dialogue, int replicIndex)
+    private void StartTheDialogue(Dialogue dialogue, int replicIndex)
     {
         _isDialogueOnGoing = true;
         _mainDialogueRoutine = StartCoroutine(MainDialogueRoutine(dialogue));
@@ -184,7 +195,7 @@ public abstract class NPC : MonoBehaviour
 
     }
 
-    private IEnumerator MainDialogueRoutine(dialogue dialogue)
+    private IEnumerator MainDialogueRoutine(Dialogue dialogue)
     {
         for (int i = _replicIndex; i < dialogue.replics.Count; i++ )
         {
@@ -251,16 +262,25 @@ public abstract class NPC : MonoBehaviour
 
     
 
-    public void UnlockNewDialogue()
+    public void UnlockNewDialogue(int index)
     {
-        _allowDialogues++;
+        
+        allDialogues[index].UnlockTheDialog() ;
+        openDialogues.Add(allDialogues[index]);
     }
 }
 
 [System.Serializable]
-struct dialogue
+struct Dialogue
 {
     public List<string> replics;
+    public bool isOpen;
+
+    public void UnlockTheDialog()
+    {
+        isOpen = true;
+
+    }
 }
 
 

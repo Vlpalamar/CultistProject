@@ -52,10 +52,14 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 660d24104bffcfb4c9cc79f24de07fc9, type: 3}
+  - {fileID: 21300000, guid: 5c4c5810f1d58d34f818dba42bfc42d5, type: 3}
   - {fileID: 21300000, guid: 6b9080908d34f4ed4b111f8752045ecf, type: 3}
+  - {fileID: 21300000, guid: 96aabbe0afca09842a444be0242b7760, type: 3}
   - {fileID: 21300000, guid: 6d7f43715b5262d42ace18ddf5fe3cec, type: 3}
   - {fileID: 21300000, guid: b6548471931e44419bb578976f69c7ba, type: 3}
   - {fileID: 21300000, guid: abc037715b8d96d4fa8b493c9986cf2c, type: 3}
+  - {fileID: 21300000, guid: 627cc5a1087d5f04da3764f3db1f91e4, type: 3}
   - {fileID: 21300000, guid: ad1eed02f32e97a4595d4a05ccaf04b9, type: 3}
   - {fileID: 21300000, guid: 86135572fe4fe144aa42fcfaf4fb19fc, type: 3}
   - {fileID: -2595652573297624611, guid: aa4436a2d8907bd43bdd244f56a3aafe, type: 3}
@@ -117,34 +121,57 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 8b08bcd21cb8a42fba868f390b68099b, type: 3}
   - {fileID: 21300000, guid: 6b19fa030e22a4aa7a4ebc2029911cf4, type: 3}
   - {fileID: 21300000, guid: b121dc43358bd07428d9d72fb1cb4511, type: 3}
+  - {fileID: 21300000, guid: 9a93719380b1ed14d8900e4efd8d1708, type: 3}
   - {fileID: 21300000, guid: e8db68d3c1c72fa4683fd7ce1cb222d4, type: 3}
   - {fileID: 21300000, guid: 6ae37c14c48e1d24ebacf139ba0d2b2b, type: 3}
+  - {fileID: 21300000, guid: 303d23349b1dd3b479312dcfa53fa90d, type: 3}
+  - {fileID: 21300000, guid: 37c7f6344a4d29a4abe1973ed00993c7, type: 3}
   - {fileID: 21300000, guid: 3b9c38445f15341d3a30049b1e724d7c, type: 3}
+  - {fileID: 21300000, guid: 5de69164efebdb04fa13d6fbe98d6969, type: 3}
+  - {fileID: 21300000, guid: ae81f5a47f2689e41b68bce0ea743075, type: 3}
   - {fileID: 21300000, guid: 5a34d9a4a7a31ad4aa2cf971d8164ab5, type: 3}
   - {fileID: 21300000, guid: 063edbe48872b4ab39d61247bfbc7217, type: 3}
+  - {fileID: 21300000, guid: b212c015e9e55db42acddbcf14764796, type: 3}
   - {fileID: 21300000, guid: ed8786350b43746719629d0e1c8d5a45, type: 3}
   - {fileID: 21300000, guid: 1e100c655539c4940865adc0c42af0ee, type: 3}
+  - {fileID: 21300000, guid: 3ac7fe46599ecc34fa07a74a1185e0af, type: 3}
   - {fileID: 21300000, guid: 0c1b3d96aae0e944ba3249732c630651, type: 3}
   - {fileID: 21300000, guid: 2abfa0b69193b46c4b7848a29c8a3c6f, type: 3}
+  - {fileID: 21300000, guid: 90948ab67306c53468182fa21577a180, type: 3}
+  - {fileID: 21300000, guid: 5a8a8ab6d2371d643ab5f442841e1e0f, type: 3}
   - {fileID: 21300000, guid: e5110fd8f5afe0c4d96584b8a1ecff00, type: 3}
   - {fileID: 21300000, guid: 94141c29fdd77cc4187800dd98d88dad, type: 3}
+  - {fileID: 21300000, guid: 75a4c1a9023c8d643a8e71d7ab968950, type: 3}
+  - {fileID: 21300000, guid: a366ecb9bb2868d45ad5b6a07bcfcb5a, type: 3}
+  - {fileID: 21300000, guid: 63265dc958c092244a89409291e80021, type: 3}
+  - {fileID: 21300000, guid: 3a8626f97641963449826a828d024e12, type: 3}
   - {fileID: 21300000, guid: a776d11a6af034008bdcb032763c4c4c, type: 3}
   - {fileID: 21300000, guid: 3863612b47acfda419caa0c12f9159ff, type: 3}
   - {fileID: 21300000, guid: cd8a00ab8c9644c449810e6556ee77f8, type: 3}
+  - {fileID: 21300000, guid: 2a182eab7b8f8fe46a6852c282bbf08a, type: 3}
   - {fileID: 21300000, guid: bac2a5cbe35544f45a76cd9c601b078f, type: 3}
+  - {fileID: 21300000, guid: 85918adbe89d4414d879ea52d2346e13, type: 3}
+  - {fileID: 21300000, guid: e69f2fdb212ce374eb790b6193448fd7, type: 3}
   - {fileID: 21300000, guid: 83b9904c54dbe4b8ba227406b0a259c3, type: 3}
   - {fileID: 21300000, guid: 6ecbc79c1c7e0fc42aa7d1cb7f72f0ec, type: 3}
+  - {fileID: 21300000, guid: 2d2e76ac35fc5934d9c54069919ffde1, type: 3}
   - {fileID: 21300000, guid: 11b5c91d7990d58498f1c669c5c48822, type: 3}
   - {fileID: 21300000, guid: 4a84cc2d487664161aacd5a7f6e84df8, type: 3}
+  - {fileID: 21300000, guid: 42e81a6d27de12d42851e339656e9fe1, type: 3}
   - {fileID: 21300000, guid: 0abb9ebd523b87f40b7e21bdeb3648f9, type: 3}
   - {fileID: 21300000, guid: e308331e58a9f474a89006337eb33d3e, type: 3}
   - {fileID: 21300000, guid: 9f01b32e1265842a8ad55a4483d583c9, type: 3}
   - {fileID: 21300000, guid: 97367e8fd5a5c405fa7cda4d1139ad5c, type: 3}
+  - {fileID: 21300000, guid: 1ffc08dfeba643d459bc5ee79f6d1ce3, type: 3}
   m_PackedSpriteNamesToIndex:
+  - IMG_1971
+  - IMG_1972
   - tile-border-left
+  - IMG_1981
   - Shader Test Colours
   - tile-border-horizontal
   - Collision Tile
+  - IMG_1890
   - IMG_1844
   - Minimap Wall
   - Shading_15
@@ -206,29 +233,48 @@ SpriteAtlas:
   - tile-border-right
   - tile-border-top
   - isometric_0007
+  - IMG_1976
   - "\u041C\u0435\u0447 (2)"
   - "\u043A\u0430\u043C\u0456\u043D\u044C"
+  - IMG_1934
+  - IMG_1960
   - slope-a
+  - IMG_1957
+  - IMG_1964
   - isometric_0008
   - stairs-border
+  - IMG_1970
   - tile-half-2
   - EnemyPreferredPathTile
+  - IMG_1967
   - "\u0431\u043B\u043E\u043A"
   - tile-wall-2
+  - IMG_1969
+  - IMG_1962
   - IMG_1907
   - Minimap Floor
+  - IMG_1980
+  - IMG_1959
+  - IMG_1958
+  - IMG_1953
   - tile-half-3
   - IMG_1911
   - tile-half-4
+  - IMG_1961
   - Half Height Collision Tile
+  - pngwing.com
+  - unknown
   - tile-full
   - "\u0442\u0430\u0439\u043B \u0437\u0435\u043C\u043B\u0438 \u0441 \u0442\u0440\u0430\u0432\u043E\u0439"
+  - IMG_1979
   - IMG_1912
   - tile-half-1
+  - IMG_1977
   - pngegg
   - tile-wall-1
   - tile-border-vertical
   - stairs-collider-a
+  - IMG_1965
   m_RenderDataMap: {}
   m_Tag: Sprite Atlas
   m_IsVariant: 0

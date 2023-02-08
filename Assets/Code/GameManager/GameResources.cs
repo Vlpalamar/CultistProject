@@ -1,23 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
-public  class GameResources : MonoBehaviour
+[CreateAssetMenu(fileName = "GameResources_", menuName = "Scriptable Objects/GameResources")]
+public  class GameResources : ScriptableObject
 {
-    private static GameResources instance;
-
-    public static GameResources Instance
-    {
-        get
-        {
-            if (instance==null)
-            {
-                instance = Resources.Load<GameResources>("ResourcesManager");
-            }
-            return instance;
-        }
-    }
-
     #region PLAYER
     [Space(10)]
     [Header("Player")]
@@ -25,7 +13,17 @@ public  class GameResources : MonoBehaviour
     #region
     [Tooltip("This is used for reference between sceens")]
     #endregion
-    [SerializeField] private CurrentPlayerSO currentPlayer;
-    public CurrentPlayerSO CurrentPlayer{ get; }
+    public PlayerDetailsSO currentPlayerDetails;
 
+
+    #region  Sounds
+    [Space(10)]
+    [Header("Sounds")]
+    #endregion
+    public AudioMixerGroup audioMasterMixerGroup;
+
+
+
+   
 }
+

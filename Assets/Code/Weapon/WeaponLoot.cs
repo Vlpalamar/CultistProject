@@ -22,6 +22,7 @@ public class WeaponLoot : MonoBehaviour
     [Header("Weapon")]
     #endregion
     [SerializeField] private GameObject loot;
+    [SerializeField]private SoundEffectSO takeTheLootSoundEffect;
     [SerializeField] private float levitationSpeed;
     [SerializeField] private float levitationDistance;
 
@@ -31,6 +32,7 @@ public class WeaponLoot : MonoBehaviour
     private bool _isReadyToGive;
     private GiveWeaponEvent _weaponEvent;
     private GiveWeapon _giveWeapon;
+   
 
     public WeaponLoot(Weapon weapon)
     {
@@ -41,6 +43,7 @@ public class WeaponLoot : MonoBehaviour
     {
         _weaponEvent = GetComponent<GiveWeaponEvent>();
         _giveWeapon = GetComponent<GiveWeapon>();
+        _weaponEvent.OnGiveWeapon += PlaySoundEffect;
     }
 
     private void Start()
@@ -56,8 +59,6 @@ public class WeaponLoot : MonoBehaviour
         if (_isReadyToGive)
         {
             
-             
-
             bool isButtonPressed = Input.GetKeyDown(KeyCode.E);
             if (isButtonPressed)
             {
@@ -133,8 +134,19 @@ public class WeaponLoot : MonoBehaviour
     {
         itemOnPedestal = null;
         _WeaponSpriteRenderer.sprite = null;
+        _weaponEvent.OnGiveWeapon -= PlaySoundEffect;
         Destroy(this);
 
+    }
+
+
+    private void PlaySoundEffect(GiveWeaponEvent giveWeapon, GiveWeaponEventArgs args)
+    {
+        if (takeTheLootSoundEffect!=null)
+        {
+            SoundEffectManager.Instance.PlaySoundEffect(takeTheLootSoundEffect);
+
+        }
     }
 
 
