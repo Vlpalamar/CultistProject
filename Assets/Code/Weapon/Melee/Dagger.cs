@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class Dagger : MeleeWeapon
 {
-
+    [SerializeField] private float _pushSpeed;
+    [SerializeField] private float _pushDistance;
 
     private float _offset = 1f;
     private float _radius = 1.5f;
-    private Transform player;
+    private Player player;
 
     public Dagger(WeaponDetailsSO weaponDetailsSO) : base(weaponDetailsSO)
     {
@@ -45,22 +46,22 @@ public class Dagger : MeleeWeapon
         {
             case AimDirection.top:
                 print("top");
-                vectorPointCenter = new Vector2(player.position.x, player.position.y + _offset);
+                vectorPointCenter = new Vector2(player.transform.position.x, player.transform.position.y + _offset);
                 break;
             
             case AimDirection.right:
                 print("right");
-                vectorPointCenter = new Vector2(player.position.x + _offset, player.position.y );
+                vectorPointCenter = new Vector2(player.transform.position.x + _offset, player.transform.position.y );
                 break;
             
             case AimDirection.down:
                 print("down");
-                vectorPointCenter = new Vector2(player.position.x, player.position.y - _offset);
+                vectorPointCenter = new Vector2(player.transform.position.x, player.transform.position.y - _offset);
                 break;
 
             case AimDirection.left:
                 print("left");
-                vectorPointCenter = new Vector2(player.position.x - _offset, player.position.y );
+                vectorPointCenter = new Vector2(player.transform.position.x - _offset, player.transform.position.y );
                 break;
 
             default:
@@ -70,13 +71,24 @@ public class Dagger : MeleeWeapon
         Collider2D[] hits = Physics2D.OverlapCircleAll(vectorPointCenter, _radius);
         HitAllInArrea(hits);
 
+        MoveInMouseDirection();
 
         
     }
 
+    private void MoveInMouseDirection()
+    {
+       
+       // player.Rigidbody.MovePosition(endPoint);
+
+        player.PlayerHelperUtility.MoveFromPointToPoint(player.transform.position,  _pushSpeed, _pushDistance);
+
+    }
+
+   
     private void Initialise()
     {
-        player = GameManager.Instance.GetPlayer().transform;
+        player = GameManager.Instance.GetPlayer();
         _offset = 1.5f;
         _radius = 1.5f;
     }

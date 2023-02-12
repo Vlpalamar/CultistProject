@@ -156,6 +156,7 @@ Transform:
   - {fileID: 1109487745}
   - {fileID: 1164461205}
   - {fileID: 935486066}
+  - {fileID: 1941147040}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1165,6 +1166,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1941147039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1941147040}
+  - component: {fileID: 1941147041}
+  m_Layer: 0
+  m_Name: LocalisationManager
+  m_TagString: LocalizationManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1941147040
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941147039}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 160428854}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1941147041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941147039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94edafc38d4fb0d44a2749db0e6d8a24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2143005251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,6 +1267,102 @@ PrefabInstance:
     - target: {fileID: 5199004526406948353, guid: b62a8f789f9c05145a803df55b495163, type: 3}
       propertyPath: m_Name
       value: TestNpc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialogues.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: nothingToSayDialogues.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: nothingToSayDialoguesKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.data[0].isOpen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.data[1].isOpen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.data[2].isOpen
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialogues.Array.data[0].replics.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.data[0].replics.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.data[1].replics.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.data[2].replics.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.data[0].replics.Array.data[0]
+      value: Test_Npc_Dialog1_replic1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.data[0].replics.Array.data[1]
+      value: Test_Npc_Dialog1_replic2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.data[0].replics.Array.data[2]
+      value: Test_Npc_Dialog1_replic3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.data[1].replics.Array.data[0]
+      value: Test_Npc_Dialog2_replic1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.data[1].replics.Array.data[1]
+      value: Test_Npc_Dialog2_replic2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.data[1].replics.Array.data[2]
+      value: Test_Npc_Dialog2_replic3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.data[2].replics.Array.data[0]
+      value: Test_Npc_Dialog3_replic1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.data[2].replics.Array.data[1]
+      value: Test_Npc_Dialog3_replic2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: allDialoguesKeys.Array.data[2].replics.Array.data[2]
+      value: Test_Npc_Dialog3_replic3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: nothingToSayDialoguesKeys.Array.data[0].replics.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: nothingToSayDialoguesKeys.Array.data[0].replics.Array.data[0]
+      value: Test_Npc_NothingToSay_replic1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: nothingToSayDialoguesKeys.Array.data[0].replics.Array.data[1]
+      value: Test_Npc_NothingToSay_replic2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199004526406948354, guid: b62a8f789f9c05145a803df55b495163, type: 3}
+      propertyPath: nothingToSayDialoguesKeys.Array.data[0].replics.Array.data[2]
+      value: Test_Npc_NothingToSay_replic3
       objectReference: {fileID: 0}
     - target: {fileID: 5199004526406948358, guid: b62a8f789f9c05145a803df55b495163, type: 3}
       propertyPath: m_RootOrder

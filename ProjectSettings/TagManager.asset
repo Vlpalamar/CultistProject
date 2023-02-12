@@ -14,6 +14,8 @@ TagManager:
   - PlayerWeapon
   - MinimapTileMap
   - Cursor
+  - AIMovement
+  - LocalizationManager
   layers:
   - Default
   - TransparentFX

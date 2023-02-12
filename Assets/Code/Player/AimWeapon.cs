@@ -67,7 +67,6 @@ public class AimWeapon : MonoBehaviour
 
     private void MoveCirle(float aimAngle)
     {
-        print(aimAngle);
 
         float angl = aimAngle* Mathf.Deg2Rad;
        

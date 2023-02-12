@@ -17,6 +17,7 @@ using UnityEngine;
 [RequireComponent(typeof(CurrentWeapon))]
 [RequireComponent(typeof(Roll))]
 [RequireComponent(typeof(RollEvent))]
+[RequireComponent(typeof(PlayerHelperUtility))]
 
 [RequireComponent(typeof(PlayerControl))]
 public class Player : MonoBehaviour
@@ -34,7 +35,7 @@ public class Player : MonoBehaviour
     private CurrentWeapon weapon;
     private Roll roll;
     private RollEvent rollEvent;
-
+    private PlayerHelperUtility playerHelperUtility;
 
     public MovementByVelocityEvent MovementByVelocityEvent { get => movementByVelocityEvent;}
     public AimWeaponEvent AimWeaponEvent { get => aimWeaponEvent; }
@@ -43,11 +44,15 @@ public class Player : MonoBehaviour
     public RollEvent RollEvent { get => rollEvent;  }
     public Rigidbody2D Rigidbody { get => rigidbody; set => rigidbody = value; }
     public MovementDetailsSO MovementDetails { get => movementDetails;}
+    public PlayerHelperUtility PlayerHelperUtility { get => playerHelperUtility;}
+
 
     //private PlayerControll playerControll;
 
     private void Awake()
     {
+        playerHelperUtility = GetComponent<PlayerHelperUtility>();
+        rigidbody = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         Rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();

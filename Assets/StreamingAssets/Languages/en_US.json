@@ -1,0 +1,52 @@
+﻿{
+  "items": [
+    {
+      "key": "Test",
+      "value": "test"
+    },
+    {
+      "key": "Test_Npc_Dialog1_replic1",
+      "value": "Dualog 1 replic 1"
+    },
+    {
+      "key": "Test_Npc_Dialog1_replic2",
+      "value": "Dualog 1 replic 2"
+    },
+    {
+      "key": "Test_Npc_Dialog1_replic3",
+      "value": "Dualog 1 replic 3"
+    },
+    {
+      "key": "Test_Npc_Dialog2_replic1",
+      "value": "Dualog 2 replic 1"
+    },
+    {
+      "key": "Test_Npc_Dialog2_replic2",
+      "value": "Dualog 2 replic 2"
+    },
+    {
+      "key": "Test_Npc_Dialog2_replic3",
+      "value": "Dualog 2 replic 3"
+    },
+    {
+      "key": "Test_Npc_Dialog3_replic1",
+      "value": "Dualog 3 replic 1"
+    },
+    {
+      "key": "Test_Npc_Dialog3_replic2",
+      "value": "Dualog 3 replic 2"
+    },
+    {
+      "key": "Test_Npc_NothingToSay_replic1",
+      "value": "hmm.. "
+    },
+    {
+      "key": "Test_Npc_NothingToSay_replic2",
+      "value": "I have nothing to say you yet"
+    },
+    {
+      "key": "Test_Npc_NothingToSay_replic3",
+      "value": "haa??"
+    }
+  ]
+}

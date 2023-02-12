@@ -1,4 +1,4 @@
-using System;
+    using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -42,15 +42,14 @@ public abstract class NPC : MonoBehaviour
     private Coroutine _mainDialogueRoutine;
     private Coroutine _addingLetterRoutine;
 
-
-
-    [SerializeField] List<Dialogue> allDialogues = new List<Dialogue>();
-    [SerializeField] List<Dialogue> nothingToSayDialogues= new List<Dialogue>();
+    [SerializeField] List<Dialogue> allDialoguesKeys = new List<Dialogue>();
+    [SerializeField] List<Dialogue> nothingToSayDialoguesKeys = new List<Dialogue>();
+    List<Dialogue> allDialogues = new List<Dialogue>();
+    [SerializeField]List<Dialogue> nothingToSayDialogues = new List<Dialogue>();
     List<Dialogue> openDialogues = new List<Dialogue>();
    
-
-   
     private WaitForFixedUpdate _waitForFixedUpdate;
+    private LocalizationManager _localizationManager;
 
     private int _diaIndex=0;
     private int _replicIndex = 0;
@@ -59,11 +58,13 @@ public abstract class NPC : MonoBehaviour
     private bool _isReadyToNextReplic=false;
     
 
-    protected virtual void Awake()
+    protected virtual void Start()
     {
         Initialise();
+
         //ShowDialogBox();
     }
+
 
     private void Update()
     {
@@ -119,20 +120,50 @@ public abstract class NPC : MonoBehaviour
         _dialogBox.gameObject.SetActive(false);
 
 
+        if (_localizationManager == null)
+            _localizationManager = GameObject.FindGameObjectWithTag("LocalizationManager").GetComponent<LocalizationManager>();
+
+
+
+        if (allDialoguesKeys.Count>0)
+        {
+            for (int i = 0; i < allDialoguesKeys.Count; i++)
+            {
+
+                Dialogue newDialog = new Dialogue();
+                newDialog.replics = new List<string>();
+                newDialog.isOpen = allDialoguesKeys[i].isOpen;
+                for (int j = 0; j < allDialoguesKeys[i].replics.Count; j++)
+                {
+                    newDialog.replics.Add(_localizationManager.GetLocalizedValue(allDialoguesKeys[i].replics[j]));
+                }
+                allDialogues.Add(newDialog);
+            }
+        }
+
+
+        if (nothingToSayDialoguesKeys.Count>0)
+        {
+            Dialogue newNothingDialog = new Dialogue();
+            newNothingDialog.replics = new List<string>();
+            for (int i = 0; i < nothingToSayDialoguesKeys[0].replics.Count; i++)
+            {
+                newNothingDialog.replics.Add(_localizationManager.GetLocalizedValue(nothingToSayDialoguesKeys[0].replics[i]));
+            }
+            nothingToSayDialogues.Add(newNothingDialog);
+        }
+
+
         for (int i = 0; i < allDialogues.Count; i++)
         {
-            if (allDialogues[i].isOpen)
-            {
-                openDialogues.Add(allDialogues[i]);
-            }
             
+            if (allDialogues[i].isOpen)
+                openDialogues.Add(allDialogues[i]); 
         }
-        
-
 
         _fadeDialogBoxRoutine = StartCoroutine(FadeDialogBoxRoutine());
 
-        UnlockNewDialogue(1);
+        
     }
 
     private void ShowDialogBox()
@@ -264,7 +295,7 @@ public abstract class NPC : MonoBehaviour
 
     public void UnlockNewDialogue(int index)
     {
-        
+
         allDialogues[index].UnlockTheDialog() ;
         openDialogues.Add(allDialogues[index]);
     }

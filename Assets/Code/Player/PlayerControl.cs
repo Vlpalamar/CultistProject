@@ -7,14 +7,6 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class PlayerControl : MonoBehaviour
 {
-
-    // [SerializeField] private Transform weaponShootPosition; 
-
-    #region Aim circle Details
-    [Header("Aim circle Details")]
-    [Space(10)]
-    #endregion
-    [SerializeField]
     
     private Coroutine _playerRollCoroutine;
     private WaitForFixedUpdate _waitForFixedUpdate;

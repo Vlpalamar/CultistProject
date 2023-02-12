@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDetails: {fileID: 11400000, guid: 0eb4a4cfa4251e148b1abcc982bf87eb, type: 2}
+  _pushSpeed: 150
+  _pushDistance: 500

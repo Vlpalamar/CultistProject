@@ -1,0 +1,53 @@
+﻿{
+  "items": [
+    {
+      "key": "Test",
+      "value": "тест"
+    },
+    {
+      "key": "Test_Npc_Dialog1_replic1",
+      "value": "Діалог 1 репліка 1 "
+    },
+    {
+      "key": "Test_Npc_Dialog1_replic2",
+      "value": "Діалог 1 репліка 2 "
+    },
+    {
+      "key": "Test_Npc_Dialog1_replic3",
+      "value": "Діалог 1 репліка 3 "
+    },
+    {
+      "key": "Test_Npc_Dialog2_replic1",
+      "value": "Діалог 2 репліка 1 "
+    },
+    {
+      "key": "Test_Npc_Dialog2_replic2",
+      "value": "Діалог 2 репліка 2 "
+    },
+    {
+      "key": "Test_Npc_Dialog2_replic3",
+      "value": "Діалог 2 репліка 3 "
+    },
+    {
+      "key": "Test_Npc_Dialog3_replic1",
+      "value": "Діалог 3 репліка 1 "
+    },
+    {
+      "key": "Test_Npc_Dialog3_replic2",
+      "value": "Діалог 3 репліка 3 "
+    },
+    {
+      "key": "Test_Npc_NothingToSay_replic1",
+      "value": "хммм.. "
+    },
+    {
+      "key": "Test_Npc_NothingToSay_replic2",
+      "value": "мне пока что нечего тебе сказать"
+    },
+    {
+      "key": "Test_Npc_NothingToSay_replic3",
+      "value": "аа?? "
+    }
+
+  ]
+}
