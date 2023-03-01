@@ -24,13 +24,10 @@ public class SoundEffectManager : SingletonMonoBehaviour<SoundEffectManager>
         float muteDecibels = -80f;
 
         if (soundVolume ==0)
-        {
             HelperUtilities.GameResources.audioMasterMixerGroup.audioMixer.SetFloat("soundsVolume", muteDecibels);
-        }
         else
-        {
             HelperUtilities.GameResources.audioMasterMixerGroup.audioMixer.SetFloat("soundsVolume", HelperUtilities.LinearToDecibels(soundVolume));
-        }
+        
     }
 
     public void PlaySoundEffect(SoundEffectSO soundEffect)

@@ -53,7 +53,7 @@ public class LocalizationManager : MonoBehaviour
             }
         }
 
-        PlayerPrefs.SetString(LANGUAGE, "ru_RU");
+        PlayerPrefs.SetString(LANGUAGE, "en_US");
         currentLanguage = PlayerPrefs.GetString(LANGUAGE);
 
         LoadLocalizedText(currentLanguage);
@@ -71,7 +71,7 @@ public class LocalizationManager : MonoBehaviour
 
         dataAsJson = File.ReadAllText(path);
 
-        print(dataAsJson);
+        
 
         //if (Application.platform == RuntimePlatform.Android)
         //{

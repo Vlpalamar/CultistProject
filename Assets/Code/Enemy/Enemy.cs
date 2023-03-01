@@ -19,10 +19,14 @@ public  class Enemy : MonoBehaviour
     private MoveToPositionEvent moveToPosition;
     private BoxCollider2D _boxCollider;
     private Rigidbody2D rigidbody;
+    private Player player ;
+    private bool isAlive=true;
 
     public EnemyDetailsSO EnemyDetails { get => enemyDetails; }
     public MoveToPositionEvent MoveToPosition { get => moveToPosition;  }
     public Rigidbody2D Rigidbody { get => rigidbody; set => rigidbody = value; }
+    public bool IsAlive { get => isAlive; set => isAlive = value; }
+    public Player _Player { get => player;  }
 
     private void Awake()
     {
@@ -31,5 +35,6 @@ public  class Enemy : MonoBehaviour
         idleEvent = GetComponent<IdleEvent>();
         _boxCollider = GetComponent<BoxCollider2D>();
         rigidbody = GetComponent<Rigidbody2D>();
+        player = GameManager.Instance.GetPlayer();
     }
 }

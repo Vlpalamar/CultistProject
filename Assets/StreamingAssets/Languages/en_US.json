@@ -47,6 +47,14 @@
     {
       "key": "Test_Npc_NothingToSay_replic3",
       "value": "haa??"
+    },
+    {
+      "key": "Npc_In_Trouble_Dialog1_replic1",
+      "value": "HEELP"
+    },
+    {
+      "key": "Npc_In_Trouble_NothingToSay_replic1",
+      "value": "thank you for coming"
     }
   ]
 }

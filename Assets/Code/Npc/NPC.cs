@@ -19,11 +19,11 @@ public abstract class NPC : MonoBehaviour
     [Tooltip("populate with the value the will be maximum of transparency for opened dialogbox")]
     #endregion
     [Range(0, 1)]
-    [SerializeField] float _dialogBoxAlpha—hannelForShow;
+    [SerializeField] float _dialogBoxAlpha—hannelForShow = 0.7f;
     #region ToolTip
     [Tooltip("Populate with acceleration  value of showing\\hiding dialogbox")]
     #endregion
-    [SerializeField] float _dialogBoxSpeed;
+    [SerializeField] float _dialogBoxSpeed=5f;
     private Canvas _dialogBox;
     private TextMeshProUGUI _dialogBoxText;
     private Image _dialogBoxSprite;
@@ -38,16 +38,22 @@ public abstract class NPC : MonoBehaviour
     [Tooltip("populate with latters adding speed value ")]
     #endregion
     [Range(0,0.3f)]
-    [SerializeField] float _lettersAddingToTextSpeed;
+    [SerializeField] float _lettersAddingToTextSpeed=0.09f;
     private Coroutine _mainDialogueRoutine;
     private Coroutine _addingLetterRoutine;
 
     [SerializeField] List<Dialogue> allDialoguesKeys = new List<Dialogue>();
     [SerializeField] List<Dialogue> nothingToSayDialoguesKeys = new List<Dialogue>();
     List<Dialogue> allDialogues = new List<Dialogue>();
-    [SerializeField]List<Dialogue> nothingToSayDialogues = new List<Dialogue>();
+    List<Dialogue> nothingToSayDialogues = new List<Dialogue>();
     List<Dialogue> openDialogues = new List<Dialogue>();
+
+    [SerializeField]
+    protected List<Quest> quests = new List<Quest>();
+
    
+
+
     private WaitForFixedUpdate _waitForFixedUpdate;
     private LocalizationManager _localizationManager;
 
@@ -56,7 +62,8 @@ public abstract class NPC : MonoBehaviour
     private bool _isReadyToTalk = false;
     private bool _isDialogueOnGoing;
     private bool _isReadyToNextReplic=false;
-    
+
+    abstract protected void AddQuests();
 
     protected virtual void Start()
     {
@@ -162,10 +169,13 @@ public abstract class NPC : MonoBehaviour
         }
 
         _fadeDialogBoxRoutine = StartCoroutine(FadeDialogBoxRoutine());
+        AddQuests();
+       
 
-        
+
     }
 
+   
     private void ShowDialogBox()
     {
         
@@ -255,15 +265,21 @@ public abstract class NPC : MonoBehaviour
 
     private void EndDialog()
     {
-        TakeQuest();
+        GiveQuest();
         _replicIndex = 0;
         _diaIndex++;
         FadeDialogBox();
     }
 
-    private void TakeQuest()
+    private void GiveQuest()
     {
-        
+        if (quests.Count-1<_diaIndex)
+            Debug.Log("No Quest");
+        else
+        {
+            Player player = GameManager.Instance.GetPlayer();
+            player.PlayerQuests.TakeQuest(quests[_diaIndex]);
+        }
     }
 
     private IEnumerator AddTextRoutine(string replic)

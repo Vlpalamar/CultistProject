@@ -47,6 +47,14 @@
     {
       "key": "Test_Npc_NothingToSay_replic3",
       "value": "аа?? "
+    },
+    {
+      "key": "Npc_In_Trouble_Dialog1_replic1",
+      "value": "Поомогии"
+    },
+    {
+      "key": "Npc_In_Trouble_NothingToSay_replic1",
+      "value": "спасибо, что пришел"
     }
 
   ]

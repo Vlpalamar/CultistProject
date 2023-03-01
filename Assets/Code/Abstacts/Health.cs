@@ -23,7 +23,7 @@ public abstract class Health : MonoBehaviour
 
     protected virtual void Die()
     {
-
+        print("You  Died");
     }
 
 

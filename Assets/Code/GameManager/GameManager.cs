@@ -1,11 +1,13 @@
-using System;
-using System.Collections;
+
+
 using System.Collections.Generic;
 using UnityEngine;
 
 [DisallowMultipleComponent]
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
+
+    [SerializeField] private List<MusicTrackSO> musicTracks = new List<MusicTrackSO>(); 
     [SerializeField] LocationBuilder locationBuilder;
     private LocationSO currentLocation;
     private Player player;
@@ -25,6 +27,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     }
     private void Start()
     {
+       
         gameState = GameState.gameStarted;
     }
 
@@ -44,7 +47,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         {
             case GameState.gameStarted:
                 StartTheGame();
-
+                
                 break;
             case GameState.playingTheGame:
                 
@@ -58,9 +61,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         currentLocation = locationBuilder.GenerateLocation();
         //инициализировать хаб 
         player.transform.position = CurrentLocation.spawnPoint;
+        MusicManager.Instance.PlayMusic(musicTracks[Random.Range(0, musicTracks.Count)], 0.2f, 2f);
 
 
         gameState = GameState.playingTheGame;
+       
     }
 
     private void InstantiatePlayer()
@@ -70,5 +75,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         print(playerGameObject);
         player = playerGameObject.GetComponent<Player>();
         player.Initialize(playerDetails);
+
+       
     }
 }

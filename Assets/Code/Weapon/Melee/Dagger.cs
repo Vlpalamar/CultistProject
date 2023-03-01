@@ -6,7 +6,7 @@ using UnityEngine;
 public class Dagger : MeleeWeapon
 {
     [SerializeField] private float _pushSpeed;
-    [SerializeField] private float _pushDistance;
+    [SerializeField] private int _pushDistance;
 
     private float _offset = 1f;
     private float _radius = 1.5f;

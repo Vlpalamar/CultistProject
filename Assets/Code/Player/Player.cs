@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[DisallowMultipleComponent]
-[RequireComponent(typeof(SpriteRenderer))]
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(PlayerQuests))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerHealth))]
@@ -18,8 +16,10 @@ using UnityEngine;
 [RequireComponent(typeof(Roll))]
 [RequireComponent(typeof(RollEvent))]
 [RequireComponent(typeof(PlayerHelperUtility))]
+[RequireComponent(typeof(AnimatePlayer))]
+[RequireComponent(typeof(PlayerControl))] 
 
-[RequireComponent(typeof(PlayerControl))]
+[DisallowMultipleComponent]
 public class Player : MonoBehaviour
 {
     [SerializeField]private MovementDetailsSO movementDetails;
@@ -27,7 +27,6 @@ public class Player : MonoBehaviour
     private BoxCollider2D boxCollider;
     private Rigidbody2D rigidbody;
     private PlayerHealth health;
-    private Animator animator;
     private PlayerDetailsSO playerDetails;
     private MovementByVelocityEvent movementByVelocityEvent;
     private AimWeaponEvent aimWeaponEvent;
@@ -36,6 +35,8 @@ public class Player : MonoBehaviour
     private Roll roll;
     private RollEvent rollEvent;
     private PlayerHelperUtility playerHelperUtility;
+    private PlayerQuests playerQuests;
+    private AnimatePlayer animatePlayer;
 
     public MovementByVelocityEvent MovementByVelocityEvent { get => movementByVelocityEvent;}
     public AimWeaponEvent AimWeaponEvent { get => aimWeaponEvent; }
@@ -45,17 +46,20 @@ public class Player : MonoBehaviour
     public Rigidbody2D Rigidbody { get => rigidbody; set => rigidbody = value; }
     public MovementDetailsSO MovementDetails { get => movementDetails;}
     public PlayerHelperUtility PlayerHelperUtility { get => playerHelperUtility;}
+    public PlayerQuests PlayerQuests { get => playerQuests;  }
+    public AnimatePlayer AnimatePlayer { get => animatePlayer;  }
 
 
     //private PlayerControll playerControll;
 
     private void Awake()
     {
+        animatePlayer = GetComponent<AnimatePlayer>();
         playerHelperUtility = GetComponent<PlayerHelperUtility>();
         rigidbody = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         Rigidbody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        
         health = GetComponent<PlayerHealth>();
         playerControl= GetComponent<PlayerControl>();
         movementByVelocityEvent = GetComponent<MovementByVelocityEvent>();
@@ -63,6 +67,9 @@ public class Player : MonoBehaviour
         weapon = GetComponent<CurrentWeapon>();
         roll = GetComponent <Roll>();
         rollEvent = GetComponent<RollEvent>();
+        playerQuests = GetComponent<PlayerQuests>();
+
+
 
     }
     

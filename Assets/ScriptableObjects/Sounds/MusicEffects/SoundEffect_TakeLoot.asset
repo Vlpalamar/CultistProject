@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f901da83969e342a2e11bbf8ce5364, type: 3}
+  m_Name: SoundEffect_TakeLoot
+  m_EditorClassIdentifier: 
+  soundEffectsName: TakeLoot
+  soundPrefab: {fileID: 4237100500560861593, guid: 7819471601dc21c46942957fde1e7d3b, type: 3}
+  audioClip: {fileID: 8300000, guid: 6b94c790f06b24643bb337c75ec9b2e1, type: 3}
+  soundPitchRandomVariationMin: 0.8
+  soundPitchRandomVariationMax: 1.2
+  soundEffectVolume: 0.5

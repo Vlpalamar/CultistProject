@@ -11,26 +11,25 @@ public class PlayerHelperUtility : MonoBehaviour
         player = GameManager.Instance.GetPlayer();
     }
 
-    public void MoveFromPointToPoint(Vector2 currentPosition,  float speed, float distance)
+    public void MoveFromPointToPoint(Vector2 currentPosition,  float speed, int distance)
     {
 
         Vector3 mouseWorldPoint = HelperUtilities.GetMouseWorldPosition();
         Vector2 direction = (mouseWorldPoint - player.transform.position).normalized;
 
-        Vector2 endPoint = player.Rigidbody.position + (direction * distance * Time.deltaTime);
+       // Vector2 endPoint = player.Rigidbody.position + (direction * distance * Time.deltaTime);
 
-        StartCoroutine(MoveInMouseDirectionRoutine(endPoint, player.Rigidbody, direction, speed));
+        StartCoroutine(MoveInMouseDirectionRoutine(distance, player.Rigidbody, direction, speed));
     }
 
 
-    private IEnumerator MoveInMouseDirectionRoutine(Vector2 endPoint, Rigidbody2D playerRigigBody,Vector2 direction, float speed)
+    private IEnumerator MoveInMouseDirectionRoutine(int distance, Rigidbody2D playerRigigBody,Vector2 direction, float speed)
     {
 
-        float minDist = 0.2f;
-        float i = 150;
-        while (Vector3.Distance(player.transform.position, endPoint) > minDist && i >0 )
+       
+        while (distance > 0 )
         {
-            i--;
+            distance--;
             playerRigigBody.MovePosition(playerRigigBody.position + (direction*Time.deltaTime*speed));
             yield return new WaitForEndOfFrame();
         }

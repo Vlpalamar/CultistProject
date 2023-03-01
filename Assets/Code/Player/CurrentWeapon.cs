@@ -42,39 +42,39 @@ public class CurrentWeapon : MonoBehaviour
     private float _radius = 1f;
     private void OnDrawGizmos()
     {
-        if (player == null)
-            player = GameManager.Instance.GetPlayer();
+        //if (player == null)
+        //    player = GameManager.Instance.GetPlayer();
 
-        Vector2 vectorPointCenter = new Vector2();
+        //Vector2 vectorPointCenter = new Vector2();
 
-        PlayerControl playerControll = player.GetComponent<PlayerControl>();
+        //PlayerControl playerControll = player.GetComponent<PlayerControl>();
 
-        switch (playerControll._aimDirection)
-        {
-            case AimDirection.top:
+        //switch (playerControll._aimDirection)
+        //{
+        //    case AimDirection.top:
                
-                vectorPointCenter = new Vector2(player.transform.position.x, player.transform.position.y + _offset);
-                break;
+        //        vectorPointCenter = new Vector2(player.transform.position.x, player.transform.position.y + _offset);
+        //        break;
 
-            case AimDirection.right:
+        //    case AimDirection.right:
               
-                vectorPointCenter = new Vector2(player.transform.position.x + _offset, player.transform.position.y);
-                break;
+        //        vectorPointCenter = new Vector2(player.transform.position.x + _offset, player.transform.position.y);
+        //        break;
 
-            case AimDirection.down:
+        //    case AimDirection.down:
                 
-                vectorPointCenter = new Vector2(player.transform.position.x, player.transform.position.y - _offset);
-                break;
+        //        vectorPointCenter = new Vector2(player.transform.position.x, player.transform.position.y - _offset);
+        //        break;
 
-            case AimDirection.left:
+        //    case AimDirection.left:
                
-                vectorPointCenter = new Vector2(player.transform.position.x - _offset, player.transform.position.y);
-                break;
+        //        vectorPointCenter = new Vector2(player.transform.position.x - _offset, player.transform.position.y);
+        //        break;
 
-            default:
-                break;
-        }
+        //    default:
+        //        break;
+        //}
 
-        Gizmos.DrawSphere(vectorPointCenter, 1.5f);
+        //Gizmos.DrawSphere(vectorPointCenter, 1.5f);
     }
 }

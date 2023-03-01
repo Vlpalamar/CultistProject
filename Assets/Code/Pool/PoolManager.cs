@@ -98,7 +98,7 @@ public class PoolManager : SingletonMonoBehaviour<PoolManager>
     {
         componentToReuse.transform.position = position;
         componentToReuse.transform.rotation = rotation;
-        componentToReuse.gameObject.transform.localScale = prefab.transform.localScale;
+      //  componentToReuse.gameObject.transform.localScale = prefab.transform.localScale;
     }
  
 

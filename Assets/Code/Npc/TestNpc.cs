@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class TestNpc : NPC
 {
-
-    //protected override void Awake()
-    //{
-    //    base.Awake();
-    //}
+    protected override void AddQuests()
+    {
+        
+    }
 } 
