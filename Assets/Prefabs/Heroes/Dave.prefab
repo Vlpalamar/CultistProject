@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 2329478361180440378}
   - component: {fileID: 7841041790708201035}
   - component: {fileID: 2603288559880132761}
+  - component: {fileID: 8050446004368730085}
   m_Layer: 9
   m_Name: Dave
   m_TagString: Player
@@ -575,7 +576,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.017624885, y: 0.6531455}
+  m_Offset: {x: -0.017624855, y: 0.49379474}
   m_SpriteTilingProperty:
     border: {x: 2.8828568, y: 1.9947369, z: 3.4885712, w: 0.9802217}
     pivot: {x: 0.46, y: 0.31}
@@ -586,7 +587,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4655302, y: 0.8855437}
+  m_Size: {x: 1.4655302, y: 1.340413}
   m_EdgeRadius: 0
 --- !u!50 &8735251419089090655
 Rigidbody2D:
@@ -761,6 +762,7 @@ MonoBehaviour:
   amountOfRolls: 3
   rollSpeed: 15
   rollDistance: 3
+  staminaCost: 25
   globalRollCooldown: 5
   localRollCooldown: 1
 --- !u!114 &2329478361180440378
@@ -806,6 +808,23 @@ MonoBehaviour:
   skelletonFront: {fileID: 3074194080825599668}
   skelletonDown: {fileID: 3534678507838617527}
   stepSounEffect: {fileID: 11400000, guid: a89b380e5e9ef764394b359cfba5ccfc, type: 2}
+--- !u!114 &8050446004368730085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5158033405188567524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38848f6b4425eeb418a8b864cfc36aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _staminaAmount: 100
+  _penaltyTime: 3
+  _staminaRecoveryMultiplier: 10
+  _secondsUntilExosted: 0.5
+  _staminaExhastedMultiplier: 30
 --- !u!1 &6499406581895724318
 GameObject:
   m_ObjectHideFlags: 0

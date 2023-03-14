@@ -9,9 +9,9 @@ public class SoundEffectManager : SingletonMonoBehaviour<SoundEffectManager>
 {
 
 
-    public int soundVolume = 8;
+    private int soundVolume = 8;
 
-    
+    public int SoundVolume { get => soundVolume; set => soundVolume = value; }
 
     private void Start()
     {
@@ -42,5 +42,15 @@ public class SoundEffectManager : SingletonMonoBehaviour<SoundEffectManager>
     {
         yield return new WaitForSeconds(length);
         sound.gameObject.SetActive(false);
+    }
+
+    public void ChangeSoundsVolume(int volume)
+    {
+        float muteDecibels = -80f;
+
+        if (volume == 0)
+            HelperUtilities.GameResources.audioMasterMixerGroup.audioMixer.SetFloat("soundsVolume", muteDecibels);
+        else
+            HelperUtilities.GameResources.audioMasterMixerGroup.audioMixer.SetFloat("soundsVolume", HelperUtilities.LinearToDecibels(volume));
     }
 }

@@ -41,6 +41,17 @@ public class MusicManager : SingletonMonoBehaviour<MusicManager>
             HelperUtilities.GameResources.musicMixerGroup.audioMixer.SetFloat("musicVolume", HelperUtilities.LinearToDecibels(musicVolume));
     }
 
+    internal void ChangeSoundsVolume(int value)
+    {
+        float muteDecibels = -80f;
+
+        if (value == 0)
+            HelperUtilities.GameResources.musicMixerGroup.audioMixer.SetFloat("musicVolume", muteDecibels);
+
+        else
+            HelperUtilities.GameResources.musicMixerGroup.audioMixer.SetFloat("musicVolume", HelperUtilities.LinearToDecibels(value));
+    }
+
     public void PlayMusic(MusicTrackSO musicTrack, float fadeOutTime = Settings.musicFadeOutTime, float fadeInTime = Settings.musicFadeInTime)
     {
         StartCoroutine(PlayMusicRoutine(musicTrack, fadeOutTime, fadeInTime));

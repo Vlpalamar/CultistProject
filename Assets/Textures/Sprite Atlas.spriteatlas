@@ -61,11 +61,15 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 627cc5a1087d5f04da3764f3db1f91e4, type: 3}
   - {fileID: 21300000, guid: ad1eed02f32e97a4595d4a05ccaf04b9, type: 3}
   - {fileID: 21300000, guid: 86135572fe4fe144aa42fcfaf4fb19fc, type: 3}
+  - {fileID: 1923688932, guid: 02f4348223a795645b91a0141db30660, type: 3}
+  - {fileID: 21300000, guid: 56ac82a2239a0c24a9ca98b92e879834, type: 3}
   - {fileID: 21300000, guid: 8b08bcd21cb8a42fba868f390b68099b, type: 3}
+  - {fileID: -35825452, guid: 007398f2f07173642a2d59ef300b8668, type: 3}
   - {fileID: 21300000, guid: 6b19fa030e22a4aa7a4ebc2029911cf4, type: 3}
   - {fileID: 21300000, guid: b121dc43358bd07428d9d72fb1cb4511, type: 3}
   - {fileID: 21300000, guid: 9a93719380b1ed14d8900e4efd8d1708, type: 3}
   - {fileID: 21300000, guid: e8db68d3c1c72fa4683fd7ce1cb222d4, type: 3}
+  - {fileID: 21300000, guid: 638860e32a1529347a4b868a937cdf9f, type: 3}
   - {fileID: 21300000, guid: 6ae37c14c48e1d24ebacf139ba0d2b2b, type: 3}
   - {fileID: 21300000, guid: 303d23349b1dd3b479312dcfa53fa90d, type: 3}
   - {fileID: 21300000, guid: 37c7f6344a4d29a4abe1973ed00993c7, type: 3}
@@ -83,16 +87,23 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 2abfa0b69193b46c4b7848a29c8a3c6f, type: 3}
   - {fileID: 21300000, guid: 90948ab67306c53468182fa21577a180, type: 3}
   - {fileID: 21300000, guid: 5a8a8ab6d2371d643ab5f442841e1e0f, type: 3}
+  - {fileID: 974898352, guid: e44cd68747dbf4544a0e3096f312d1a0, type: 3}
+  - {fileID: 572494109, guid: e44cd68747dbf4544a0e3096f312d1a0, type: 3}
   - {fileID: 21300000, guid: 3bc2cfe7e64c38342bf2db7c7cd70c19, type: 3}
+  - {fileID: 21300000, guid: 5d52f068e38f9a349adc240bae5ccd4c, type: 3}
   - {fileID: 21300000, guid: e5110fd8f5afe0c4d96584b8a1ecff00, type: 3}
   - {fileID: 21300000, guid: 94141c29fdd77cc4187800dd98d88dad, type: 3}
+  - {fileID: 2061610448, guid: ae6dd159ed74c0b4eae3349e4e6a0592, type: 3}
+  - {fileID: -787313866, guid: ae6dd159ed74c0b4eae3349e4e6a0592, type: 3}
   - {fileID: 21300000, guid: 75a4c1a9023c8d643a8e71d7ab968950, type: 3}
   - {fileID: 21300000, guid: a366ecb9bb2868d45ad5b6a07bcfcb5a, type: 3}
   - {fileID: 21300000, guid: 63265dc958c092244a89409291e80021, type: 3}
   - {fileID: 21300000, guid: 3a8626f97641963449826a828d024e12, type: 3}
   - {fileID: 21300000, guid: a776d11a6af034008bdcb032763c4c4c, type: 3}
+  - {fileID: -365139065, guid: 9b404c8a93f0c8849898292afc1cdd7e, type: 3}
   - {fileID: 21300000, guid: 3863612b47acfda419caa0c12f9159ff, type: 3}
   - {fileID: 21300000, guid: cd8a00ab8c9644c449810e6556ee77f8, type: 3}
+  - {fileID: 21300000, guid: 27ece1abdc8a8384ba0839a8c3dcd835, type: 3}
   - {fileID: 21300000, guid: 2a182eab7b8f8fe46a6852c282bbf08a, type: 3}
   - {fileID: 21300000, guid: bac2a5cbe35544f45a76cd9c601b078f, type: 3}
   - {fileID: 21300000, guid: 85918adbe89d4414d879ea52d2346e13, type: 3}
@@ -100,11 +111,13 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 83b9904c54dbe4b8ba227406b0a259c3, type: 3}
   - {fileID: 21300000, guid: 6ecbc79c1c7e0fc42aa7d1cb7f72f0ec, type: 3}
   - {fileID: 21300000, guid: 2d2e76ac35fc5934d9c54069919ffde1, type: 3}
+  - {fileID: 695077801, guid: a31dc51d5750fec4da46701b95c2615d, type: 3}
   - {fileID: 21300000, guid: 11b5c91d7990d58498f1c669c5c48822, type: 3}
   - {fileID: 21300000, guid: 4a84cc2d487664161aacd5a7f6e84df8, type: 3}
   - {fileID: 21300000, guid: 42e81a6d27de12d42851e339656e9fe1, type: 3}
   - {fileID: 21300000, guid: 0abb9ebd523b87f40b7e21bdeb3648f9, type: 3}
   - {fileID: 21300000, guid: e308331e58a9f474a89006337eb33d3e, type: 3}
+  - {fileID: -68176597, guid: 05129d1e086089b4fa0224c7612651b0, type: 3}
   - {fileID: 21300000, guid: 9f01b32e1265842a8ad55a4483d583c9, type: 3}
   - {fileID: 21300000, guid: 97367e8fd5a5c405fa7cda4d1139ad5c, type: 3}
   - {fileID: 21300000, guid: 1ffc08dfeba643d459bc5ee79f6d1ce3, type: 3}
@@ -118,11 +131,15 @@ SpriteAtlas:
   - IMG_1890
   - IMG_1844
   - Minimap Wall
+  - IMG_2064_0
+  - kisspng-green-leaf-5b3b0700dc72d2.579675031530595072903-pixelicious
   - tile-border-right
+  - Brush1_0
   - tile-border-top
   - isometric_0007
   - IMG_1976
   - "\u041C\u0435\u0447 (2)"
+  - pngegg (4)-pixelicious
   - "\u043A\u0430\u043C\u0456\u043D\u044C"
   - IMG_1934
   - IMG_1960
@@ -140,16 +157,23 @@ SpriteAtlas:
   - tile-wall-2
   - IMG_1969
   - IMG_1962
+  - IMG_2065_1
+  - IMG_2065_0
   - pngwing.com (1)
+  - "\u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435_2023-03-10_210717824-removebg-preview"
   - IMG_1907
   - Minimap Floor
+  - IMG_2060_0
+  - IMG_2060_1
   - IMG_1980
   - IMG_1959
   - IMG_1958
   - IMG_1953
   - tile-half-3
+  - IMG_2061_0
   - IMG_1911
   - tile-half-4
+  - pngegg (3)-pixelicious
   - IMG_1961
   - Half Height Collision Tile
   - pngwing.com
@@ -157,11 +181,13 @@ SpriteAtlas:
   - tile-full
   - "\u0442\u0430\u0439\u043B \u0437\u0435\u043C\u043B\u0438 \u0441 \u0442\u0440\u0430\u0432\u043E\u0439"
   - IMG_1979
+  - Brush2_0
   - IMG_1912
   - tile-half-1
   - IMG_1977
   - pngegg
   - tile-wall-1
+  - IMG_2063_0
   - tile-border-vertical
   - stairs-collider-a
   - IMG_1965

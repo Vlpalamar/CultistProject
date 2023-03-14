@@ -38,6 +38,6 @@ public class GiveWeapon : MonoBehaviour
     private void PassTheWeapon(Weapon weapon)
     {
         GameManager.Instance.GetPlayer().Weapon.ChangeWeapon(weapon);
-        print("!");
+      //  print("!");
     }
 }

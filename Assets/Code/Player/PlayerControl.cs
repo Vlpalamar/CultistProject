@@ -44,7 +44,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (_player.Weapon.Weapon == null) return;   
         
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
             _player.Weapon.Use(_aimDirection);      
 
 
@@ -86,13 +86,16 @@ public class PlayerControl : MonoBehaviour
         {
             if (!isSpaceButtonDown)
             {
+                
                 _player.MovementByVelocityEvent.CallMovementByVelocityEvent(direction, _player.MovementDetails.MoveSpeed);
             }
             else
             {
                 if (_player.Roll.IsReady && _player.Roll.RollsRemaining>0)
                 {
-                   
+                    if (!_player.PlayerStamina.TryToUse(_player.Roll.StaminaCost)) return;
+                    print(_player.Roll.StaminaCost);
+
                     _player.Roll.IsReady = false;
                     _player.Roll.IsIntersepted = false;
                     _player.Roll.RollsRemaining--;
@@ -116,10 +119,7 @@ public class PlayerControl : MonoBehaviour
 
     private void Roll(Vector3 direction)
     {
-        print(_player.Roll.RollsRemaining);
-
         _playerRollCoroutine = StartCoroutine(PlayerRollRoutine(direction));
-
     }
 
     private IEnumerator PlayerRollRoutine(Vector3 direction)

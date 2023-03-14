@@ -15,14 +15,14 @@ public class EnemyHealth : Health
     public override void GetDamage(float damage)
     {
         base.GetDamage(damage);
-    
+        _enemy.EnemyEffects.PlayOnGetDamage();
     }
 
     protected override void Die()
     {
         _enemy.IsAlive = false;
         _enemy._Player.PlayerQuests.CheckQuests();
-        print("Die");
+       // print("Die");
         Destroy(this.gameObject);
     }
 

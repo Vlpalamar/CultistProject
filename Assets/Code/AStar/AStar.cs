@@ -69,8 +69,8 @@ public  class AStar  :SingletonMonoBehaviour<AStar>
 
 
         } while (!_isOver && i <100) ;
-        Debug.Log(i);
-        Debug.Log("Done");
+        //Debug.Log(i);
+        //Debug.Log("Done");
         return readyStack;
     }
 

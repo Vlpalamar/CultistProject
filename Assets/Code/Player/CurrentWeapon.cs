@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Player))]
+
+[DisallowMultipleComponent]
 public class CurrentWeapon : MonoBehaviour
 {
     Weapon weapon;
     [SerializeField] Vector2 vectorA, vectorB;
 
+    private Player _player;
+
     public Weapon Weapon { get => weapon; set => weapon = value; }
 
     private void Start()
     {
-        
+        _player = GameManager.Instance.GetPlayer();
     }
     private void Update()
     {
@@ -26,9 +31,16 @@ public class CurrentWeapon : MonoBehaviour
 
     public void Use(AimDirection aimDirection)
     {
+        if (!weapon.IsReady == true) return;  
+        if (!_player.PlayerStamina.TryToUse(weapon.WeaponDetails.StaminaCost)) return;
+        
+
+        
 
         //запуск анимации 
         Weapon.Use( aimDirection);
+        return;
+        
     }
 
     public void ChangeWeapon(Weapon newWeapon)

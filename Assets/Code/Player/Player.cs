@@ -18,6 +18,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerHelperUtility))]
 [RequireComponent(typeof(AnimatePlayer))]
 [RequireComponent(typeof(PlayerControl))] 
+[RequireComponent(typeof(PlayerStamina))]
 
 [DisallowMultipleComponent]
 public class Player : MonoBehaviour
@@ -37,6 +38,8 @@ public class Player : MonoBehaviour
     private PlayerHelperUtility playerHelperUtility;
     private PlayerQuests playerQuests;
     private AnimatePlayer animatePlayer;
+    private UI uI;
+    private PlayerStamina playerStamina;
 
     public MovementByVelocityEvent MovementByVelocityEvent { get => movementByVelocityEvent;}
     public AimWeaponEvent AimWeaponEvent { get => aimWeaponEvent; }
@@ -48,6 +51,8 @@ public class Player : MonoBehaviour
     public PlayerHelperUtility PlayerHelperUtility { get => playerHelperUtility;}
     public PlayerQuests PlayerQuests { get => playerQuests;  }
     public AnimatePlayer AnimatePlayer { get => animatePlayer;  }
+    public UI UI { get => uI; set => uI = value; }
+    public PlayerStamina PlayerStamina { get => playerStamina; }
 
 
     //private PlayerControll playerControll;
@@ -68,7 +73,8 @@ public class Player : MonoBehaviour
         roll = GetComponent <Roll>();
         rollEvent = GetComponent<RollEvent>();
         playerQuests = GetComponent<PlayerQuests>();
-
+        playerStamina = GetComponent<PlayerStamina>();
+        uI = GameManager.Instance.UI;
 
 
     }

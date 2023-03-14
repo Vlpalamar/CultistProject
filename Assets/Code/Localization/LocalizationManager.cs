@@ -21,9 +21,10 @@ public class LocalizationManager : MonoBehaviour
         }
         set
         {
+            
+            //CurrentLanguage = value;
+            LoadLocalizedText(value);
             PlayerPrefs.SetString(LANGUAGE, value);
-            CurrentLanguage = PlayerPrefs.GetString(LANGUAGE);
-            LoadLocalizedText(currentLanguage);
         }
     }
 
@@ -53,7 +54,7 @@ public class LocalizationManager : MonoBehaviour
             }
         }
 
-        PlayerPrefs.SetString(LANGUAGE, "en_US");
+       // PlayerPrefs.SetString(LANGUAGE, "en_US");
         currentLanguage = PlayerPrefs.GetString(LANGUAGE);
 
         LoadLocalizedText(currentLanguage);

@@ -55,6 +55,42 @@
     {
       "key": "Npc_In_Trouble_NothingToSay_replic1",
       "value": "thank you for coming"
+    },
+    {
+      "key": "Help_The_Npc_Quest_Description",
+      "value": "help the guy get out of trouble"
+    },
+    {
+      "key": "Button_binding",
+      "value": "Buttons binding"
+    },
+    {
+      "key": "Back",
+      "value": "Back"
+    },
+    {
+      "key": "Sound_volume",
+      "value": "Sound Volume"
+    },
+    {
+      "key": "Music_volume",
+      "value": "Music Volume"
+    },
+    {
+      "key": "Continue",
+      "value": "Continue"
+    },
+    {
+      "key": "New_Game",
+      "value": "New Game"
+    },
+    {
+      "key": "Options",
+      "value": "Options"
+    },
+    {
+      "key": "Quit",
+      "value": "Quit"
     }
   ]
 }

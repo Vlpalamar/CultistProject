@@ -23,22 +23,22 @@ public abstract class NPC : MonoBehaviour
     #region ToolTip
     [Tooltip("Populate with acceleration  value of showing\\hiding dialogbox")]
     #endregion
-    [SerializeField] float _dialogBoxSpeed=5f;
+    [SerializeField] float _dialogBoxSpeed = 5f;
     private Canvas _dialogBox;
     private TextMeshProUGUI _dialogBoxText;
     private Image _dialogBoxSprite;
     private Coroutine _showDialogBoxRoutine;
     private Coroutine _fadeDialogBoxRoutine;
 
-    #region
+    #region Dialog Text Settings
     [Space(5)]
     [Header("Dialog Text Settings")]
     #endregion
     #region Tooltip
     [Tooltip("populate with latters adding speed value ")]
     #endregion
-    [Range(0,0.3f)]
-    [SerializeField] float _lettersAddingToTextSpeed=0.09f;
+    [Range(0, 0.3f)]
+    [SerializeField] float _lettersAddingToTextSpeed = 0.09f;
     private Coroutine _mainDialogueRoutine;
     private Coroutine _addingLetterRoutine;
 
@@ -51,17 +51,17 @@ public abstract class NPC : MonoBehaviour
     [SerializeField]
     protected List<Quest> quests = new List<Quest>();
 
-   
-
-
+    
     private WaitForFixedUpdate _waitForFixedUpdate;
     private LocalizationManager _localizationManager;
 
-    private int _diaIndex=0;
+    private const string DiaIndexKey = "DiaIndexKey";
+
+    private int _diaIndex = 0;
     private int _replicIndex = 0;
     private bool _isReadyToTalk = false;
     private bool _isDialogueOnGoing;
-    private bool _isReadyToNextReplic=false;
+    private bool _isReadyToNextReplic = false;
 
     abstract protected void AddQuests();
 
@@ -75,8 +75,8 @@ public abstract class NPC : MonoBehaviour
 
     private void Update()
     {
-       
-       
+
+
         if (_isReadyToTalk)
         {
             bool isButtonPressed = Input.GetKeyDown(Settings.KeyCode_Use);
@@ -84,27 +84,27 @@ public abstract class NPC : MonoBehaviour
             {
                 if (!_isReadyToNextReplic && _isDialogueOnGoing)
                     _isReadyToNextReplic = true;
-                
 
-                if (allDialogues.Count==0|| _isDialogueOnGoing ==true) return;
+
+                if (allDialogues.Count == 0 || _isDialogueOnGoing == true) return;
 
                 ShowDialogBox();
-               
-                if (openDialogues.Count> _diaIndex)
+
+                if (openDialogues.Count > _diaIndex)
                     StartTheDialogue(openDialogues[_diaIndex], _replicIndex);
 
                 else
                 {
-                    string replic= nothingToSayDialogues[0].replics[UnityEngine.Random.Range(0, nothingToSayDialogues[0].replics.Count)];
+                    string replic = nothingToSayDialogues[0].replics[UnityEngine.Random.Range(0, nothingToSayDialogues[0].replics.Count)];
                     AnswerNothingToSay(replic);
                 }
-                                            
-                
+
+
             }
         }
     }
 
-   
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -127,12 +127,20 @@ public abstract class NPC : MonoBehaviour
         _dialogBox.gameObject.SetActive(false);
 
 
+
+        if (PlayerPrefs.HasKey(DiaIndexKey))
+            _diaIndex = PlayerPrefs.GetInt(DiaIndexKey);
+
+
+        print(PlayerPrefs.HasKey(DiaIndexKey));
+        print("_diaIndex: " + _diaIndex);
+
         if (_localizationManager == null)
             _localizationManager = GameObject.FindGameObjectWithTag("LocalizationManager").GetComponent<LocalizationManager>();
 
 
 
-        if (allDialoguesKeys.Count>0)
+        if (allDialoguesKeys.Count > 0)
         {
             for (int i = 0; i < allDialoguesKeys.Count; i++)
             {
@@ -149,7 +157,7 @@ public abstract class NPC : MonoBehaviour
         }
 
 
-        if (nothingToSayDialoguesKeys.Count>0)
+        if (nothingToSayDialoguesKeys.Count > 0)
         {
             Dialogue newNothingDialog = new Dialogue();
             newNothingDialog.replics = new List<string>();
@@ -163,56 +171,56 @@ public abstract class NPC : MonoBehaviour
 
         for (int i = 0; i < allDialogues.Count; i++)
         {
-            
+
             if (allDialogues[i].isOpen)
-                openDialogues.Add(allDialogues[i]); 
+                openDialogues.Add(allDialogues[i]);
         }
 
         _fadeDialogBoxRoutine = StartCoroutine(FadeDialogBoxRoutine());
         AddQuests();
-       
+
 
 
     }
 
-   
+
     private void ShowDialogBox()
     {
-        
-         _showDialogBoxRoutine = StartCoroutine(ShowDialogBoxRoutine());
-       
+
+        _showDialogBoxRoutine = StartCoroutine(ShowDialogBoxRoutine());
+
     }
 
     private IEnumerator ShowDialogBoxRoutine()
     {
-        float currentAlpha—hannel=0f;
+        float currentAlpha—hannel = 0f;
         _dialogBox.gameObject.SetActive(true);
-        while (currentAlpha—hannel<_dialogBoxAlpha—hannelForShow)
+        while (currentAlpha—hannel < _dialogBoxAlpha—hannelForShow)
         {
-            currentAlpha—hannel += Time.deltaTime * _dialogBoxSpeed  ;
+            currentAlpha—hannel += Time.deltaTime * _dialogBoxSpeed;
             _dialogBoxSprite.color = new Color(256, 256, 256, currentAlpha—hannel);
-           yield return _waitForFixedUpdate;
+            yield return _waitForFixedUpdate;
         }
         yield return _waitForFixedUpdate;
     }
 
     private void FadeDialogBox()
     {
-        _isDialogueOnGoing = false ;
+        _isDialogueOnGoing = false;
         _isReadyToNextReplic = false;
         if (_mainDialogueRoutine != null)
             StopCoroutine(_mainDialogueRoutine);
         if (_addingLetterRoutine != null)
-            StopCoroutine(_addingLetterRoutine);    
+            StopCoroutine(_addingLetterRoutine);
         _fadeDialogBoxRoutine = StartCoroutine(FadeDialogBoxRoutine());
-      
-        
+
+
     }
 
     private IEnumerator FadeDialogBoxRoutine()
     {
         float currentAlpha—hannel = _dialogBoxAlpha—hannelForShow;
-        
+
         while (currentAlpha—hannel > 0)
         {
             currentAlpha—hannel -= Time.deltaTime * _dialogBoxSpeed;
@@ -238,10 +246,10 @@ public abstract class NPC : MonoBehaviour
 
     private IEnumerator MainDialogueRoutine(Dialogue dialogue)
     {
-        for (int i = _replicIndex; i < dialogue.replics.Count; i++ )
+        for (int i = _replicIndex; i < dialogue.replics.Count; i++)
         {
             string replic = dialogue.replics[_replicIndex];
-            yield return _addingLetterRoutine= StartCoroutine(AddTextRoutine(replic));
+            yield return _addingLetterRoutine = StartCoroutine(AddTextRoutine(replic));
             yield return new WaitForEndOfFrame();
 
             while (!_isReadyToNextReplic)
@@ -255,12 +263,12 @@ public abstract class NPC : MonoBehaviour
             if (_replicIndex == dialogue.replics.Count - 1)
             {
                 EndDialog();
-                break ;
+                break;
             }
             _replicIndex++;
 
         }
-       
+
     }
 
     private void EndDialog()
@@ -269,7 +277,13 @@ public abstract class NPC : MonoBehaviour
         _replicIndex = 0;
         _diaIndex++;
         FadeDialogBox();
+
+        PlayerPrefs.SetInt(DiaIndexKey, _diaIndex);
+
+        //!!!! ÒÓı‡ÌËÚ¸ ‰Ë‡ÎÓ„ ËÌ‰ÂÍÒ
     }
+
+   
 
     private void GiveQuest()
     {
@@ -331,3 +345,4 @@ struct Dialogue
 }
 
 
+        

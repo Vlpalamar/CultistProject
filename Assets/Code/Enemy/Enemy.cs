@@ -1,12 +1,16 @@
 using UnityEngine;
 
+
 [RequireComponent(typeof(EnemyHealth))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(MoveToPositionEvent))]
 [RequireComponent(typeof(MoveToPosition))]
 [RequireComponent(typeof(EnemyMovementAI))]
+[RequireComponent(typeof(EnemyEffects))]
+
 [DisallowMultipleComponent]
+[System.Serializable]
 public  class Enemy : MonoBehaviour
 {
     #region ToolTip
@@ -20,6 +24,7 @@ public  class Enemy : MonoBehaviour
     private BoxCollider2D _boxCollider;
     private Rigidbody2D rigidbody;
     private Player player ;
+    private EnemyEffects enemyEffects;
     private bool isAlive=true;
 
     public EnemyDetailsSO EnemyDetails { get => enemyDetails; }
@@ -27,6 +32,7 @@ public  class Enemy : MonoBehaviour
     public Rigidbody2D Rigidbody { get => rigidbody; set => rigidbody = value; }
     public bool IsAlive { get => isAlive; set => isAlive = value; }
     public Player _Player { get => player;  }
+    public EnemyEffects EnemyEffects { get => enemyEffects;  }
 
     private void Awake()
     {
@@ -36,5 +42,6 @@ public  class Enemy : MonoBehaviour
         _boxCollider = GetComponent<BoxCollider2D>();
         rigidbody = GetComponent<Rigidbody2D>();
         player = GameManager.Instance.GetPlayer();
+        enemyEffects = GetComponent<EnemyEffects>();
     }
 }

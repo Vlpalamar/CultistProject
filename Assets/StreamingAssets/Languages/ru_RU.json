@@ -42,7 +42,7 @@
     },
     {
       "key": "Test_Npc_NothingToSay_replic2",
-      "value": "мне пока что нечего тебе сказать"
+      "value": "наразі мені більше нічого тобі сказати"
     },
     {
       "key": "Test_Npc_NothingToSay_replic3",
@@ -50,12 +50,51 @@
     },
     {
       "key": "Npc_In_Trouble_Dialog1_replic1",
-      "value": "Поомогии"
+      "value": "Допоможи"
     },
     {
       "key": "Npc_In_Trouble_NothingToSay_replic1",
-      "value": "спасибо, что пришел"
+      "value": "Дякую, що прийшов"
+    },
+    {
+      "key": "Help_The_Npc_Quest_Description",
+      "value": "Допоможи цьому хлопцью вибратися з халепи"
+    },
+    {
+      "key": "Button_binding",
+      "value": "Прив'язання клавіш"
+    },
+    {
+      "key": "Back",
+      "value": "Назад"
+    },
+    {
+      "key": "Sound_volume",
+      "value": "Гучність Звуків"
+    },
+    {
+      "key": "Music_volume",
+      "value": "Гучність музики"
+    },
+    {
+      "key": "Continue",
+      "value": "Продовжити"
+    },
+    {
+      "key": "New_Game",
+      "value": "Нова Гра"
+    },
+    {
+      "key": "Options",
+      "value": "Налаштування"
+    },
+    {
+      "key": "Quit",
+      "value": "Вихід"
     }
+
+
+
 
   ]
 }

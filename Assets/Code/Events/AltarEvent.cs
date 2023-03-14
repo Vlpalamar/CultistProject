@@ -26,7 +26,7 @@ public class AltarEvent : EventArea
         foreach (Transform point in EnemySpawnPoints)
         {
             int enemyIndex = Random.Range(0, enemyPool.Count-1);
-            print(enemyIndex);
+          
             
             Enemy enemy = (Enemy)PoolManager.Instance.ReuseComponent(enemyPool[enemyIndex].EnemyPrefab, point.position, Quaternion.identity);
             enemy.gameObject.SetActive(true);

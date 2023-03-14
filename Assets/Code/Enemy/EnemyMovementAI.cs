@@ -90,7 +90,7 @@ public class EnemyMovementAI : MonoBehaviour
             Vector3Int newVector = new Vector3Int(Mathf.RoundToInt(nextPosition.x), Mathf.RoundToInt(nextPosition.y), 0);
             Vector2 nextStep = AStar.Instance.Grid.CellToWorld(newVector);
 
-            print("nextPosition:"+ nextStep);
+            //print("nextPosition:"+ nextStep);
             while (Vector2.Distance(nextStep, transform.position)>0.2f)
             {
                 _enemy.MoveToPosition.CallOnMoveToPositionEvent(transform.position, nextStep, (nextStep - (Vector2)transform.position).normalized, moveSpeed);

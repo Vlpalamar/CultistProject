@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: e727959e41f983c4481f40e44402befc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -186,7 +186,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 2aff1a155dbe757458f2e1f61c5e11f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -275,6 +275,7 @@ GameObject:
   - component: {fileID: 3571870652588923297}
   - component: {fileID: 3571870652588923294}
   - component: {fileID: 8458511423452964830}
+  - component: {fileID: 4156483436799648393}
   m_Layer: 0
   m_Name: Spine GameObject (Front)
   m_TagString: Untagged
@@ -331,7 +332,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: e727959e41f983c4481f40e44402befc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -420,7 +421,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.006685257, y: 6.862632}
+  m_Offset: {x: 0.006685257, y: 2.936936}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -431,7 +432,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.470849, y: 13.919079}
+  m_Size: {x: 4.470849, y: 10.240125}
   m_EdgeRadius: 0
 --- !u!50 &3571870652588923307
 Rigidbody2D:
@@ -560,6 +561,7 @@ MonoBehaviour:
   amountOfRolls: 3
   rollSpeed: 15
   rollDistance: 3
+  staminaCost: 25
   globalRollCooldown: 5
   localRollCooldown: 1
 --- !u!114 &3571870652588923296
@@ -616,7 +618,24 @@ MonoBehaviour:
   skelletonRight: {fileID: 4749719188700336874}
   skelletonFront: {fileID: 8467287945696994432}
   skelletonDown: {fileID: 6525809527918356382}
-  walk: {fileID: 11400000, guid: c24f12767863cbb44ba0294ed741f55e, type: 2}
+  stepSounEffect: {fileID: 0}
+--- !u!114 &4156483436799648393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3571870652588923291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38848f6b4425eeb418a8b864cfc36aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _staminaAmount: 100
+  _penaltyTime: 3
+  _staminaRecoveryMultiplier: 15
+  _secondsUntilExosted: 0.5
+  _staminaExhastedMultiplier: 30
 --- !u!1 &3571870653056560253
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +813,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 04a66288548533c4486e59a59f0d7252, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

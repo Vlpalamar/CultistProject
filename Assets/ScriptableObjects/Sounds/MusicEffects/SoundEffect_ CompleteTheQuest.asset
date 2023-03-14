@@ -15,6 +15,6 @@ MonoBehaviour:
   soundEffectsName: CompleteTheQuest
   soundPrefab: {fileID: 4237100500560861593, guid: 7819471601dc21c46942957fde1e7d3b, type: 3}
   audioClip: {fileID: 8300000, guid: 0231eb356f369464e9dd1158da603692, type: 3}
-  soundPitchRandomVariationMin: 0.8
-  soundPitchRandomVariationMax: 1.2
+  soundPitchRandomVariationMin: 1
+  soundPitchRandomVariationMax: 1
   soundEffectVolume: 0.5

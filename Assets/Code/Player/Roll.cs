@@ -19,6 +19,7 @@ public class Roll : MonoBehaviour
     [SerializeField] private int amountOfRolls;
     [SerializeField] private float rollSpeed;
     [SerializeField] private float rollDistance;
+    [SerializeField] private int staminaCost;
 
 
     #region ToolTip
@@ -46,6 +47,7 @@ public class Roll : MonoBehaviour
     public int RollsRemaining { get => rollsRemaining; set => rollsRemaining = value; }
     public bool IsReady { get => isReady; set => isReady = value; }
     public bool IsIntersepted { get => isIntersepted; set => isIntersepted = value; }
+    public int StaminaCost { get => staminaCost; }
 
     private void Awake()
     {

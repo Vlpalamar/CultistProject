@@ -19,5 +19,6 @@ public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T:MonoBeha
         {
             Destroy(this.gameObject);
         }
+        
     }
 }

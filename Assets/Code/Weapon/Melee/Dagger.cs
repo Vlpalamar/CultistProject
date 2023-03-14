@@ -67,7 +67,7 @@ public class Dagger : MeleeWeapon
             default:
                 break;
         }
-        print(vectorPointCenter);
+      //  print(vectorPointCenter);
         Collider2D[] hits = Physics2D.OverlapCircleAll(vectorPointCenter, _radius);
         HitAllInArrea(hits);
 
@@ -102,11 +102,11 @@ public class Dagger : MeleeWeapon
         {
            
             Health hitHealth = hit.GetComponent<Health>();
-            if (hitHealth == null||hit.GetComponent<Transform>()==player) continue;
+            if (hitHealth == null||hit.GetComponent<PlayerHealth>()) continue;
 
-            print(hit.name);
+          //  print(hit.name);
             hitHealth.GetDamage(this.weaponDetails.Damage);
-            print("!");
+            //print("!");
         }
     }
 

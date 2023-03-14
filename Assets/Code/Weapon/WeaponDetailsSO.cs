@@ -10,6 +10,7 @@ public class WeaponDetailsSO : ScriptableObject
     [SerializeField] private float delay ;
     [SerializeField] private float damage;
     [SerializeField] private float preCharge = 0;
+    [SerializeField] private int staminaCost;
     [SerializeField] private Sprite icon;
 
     public string WeaponName { get => weaponName;  }
@@ -18,4 +19,5 @@ public class WeaponDetailsSO : ScriptableObject
     public float PreCharge { get => preCharge; }
     public Sprite Icon { get => icon; set => icon = value; }
     public float Delay { get => delay; set => delay = value; }
+    public int StaminaCost { get => staminaCost; }
 }

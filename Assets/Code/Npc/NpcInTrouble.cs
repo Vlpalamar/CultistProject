@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class NpcInTrouble : NPC
 {
+    private List<string> _quests = new List<string>();
     protected override void AddQuests()
     {
-        HelpTheNpcQuest quest = new HelpTheNpcQuest();
+        _quests.Add("HelpTheNpcQuestName");
+       
+       
       
-        quest.QuestNameKey = "HelpTheNpcQuest_Name";
-        quest.QuestDescriptionKey= "HelpTheNpcQuest_Description";
-        quests.Add(quest);
-        
+        foreach (QuestSO item in GameManager.Instance.QuestsPool.AllQuests)
+        {
+            foreach (string questName in _quests)
+            {
+                if (questName==item.QuestNameKey)
+                {
+                    print("FOUND IT");
+                    quests.Add(item.Quest);
+                }
+            }
+        }
+
+        print("Quest is Ready TO Take");
+
+
     }
 
-   
+
 }

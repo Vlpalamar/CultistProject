@@ -8,7 +8,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 {
 
     [SerializeField] private List<MusicTrackSO> musicTracks = new List<MusicTrackSO>(); 
-    [SerializeField] LocationBuilder locationBuilder;
+    [SerializeField] private LocationBuilder locationBuilder;
+    [SerializeField] private  UI ui;
+    [SerializeField] private QuestsPool questsPool;
     private LocationSO currentLocation;
     private Player player;
     private PlayerDetailsSO playerDetails;
@@ -16,6 +18,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     public GameState GameState { get => gameState; }
     public LocationSO CurrentLocation { get => currentLocation;  }
+    public UI UI { get => ui; set => ui = value; }
+    public QuestsPool QuestsPool { get => questsPool;  }
 
     protected override void Awake()
     {
