@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UI : SingletonMonoBehaviour<UI>
@@ -11,6 +12,7 @@ public class UI : SingletonMonoBehaviour<UI>
     [Header("Pause")]
     #endregion
     [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject deathMenu;
     [SerializeField] private Slider _soundVolume;
     [SerializeField] private Slider _musicVolume;
 
@@ -28,8 +30,22 @@ public class UI : SingletonMonoBehaviour<UI>
     [Header("GamePlay Elements")]
     #endregion
     [SerializeField] private Slider hpBar;
+    [SerializeField] private Slider exhastedHpBar;
     [SerializeField] private Slider staminaBar;
     [SerializeField] private Slider exhastedStaminaBar;
+
+    #region GamePlay Elements
+    [Space(5)]
+    [Header("UI Details")]
+    #endregion
+    [SerializeField] private float secondsUntilBarExosted = 0.5f;
+    [SerializeField] private float barExhastedMultiplier = 30f;
+    #region SceneName
+    [Space(5)]
+    [Header("SceneName")]
+    #endregion
+    [SerializeField] private string thisSceneName;
+    [SerializeField] private string mainaMenuSceneName;
 
 
     private const string soundValueKey= "soundValueKey";
@@ -39,6 +55,11 @@ public class UI : SingletonMonoBehaviour<UI>
     public Slider HpBar { get => hpBar;  }
     public Slider StaminaBar { get => staminaBar; }
     public Slider ExhastedStaminaBar { get => exhastedStaminaBar; }
+    public Slider ExhastedHpBar { get => exhastedHpBar;  }
+ 
+    public float BarExhastedMultiplier { get => barExhastedMultiplier;  }
+    public float SecondsUntilBarExosted { get => secondsUntilBarExosted;  }
+    public GameObject DeathMenu { get => deathMenu; }
 
     protected  void Start()
     {
@@ -160,9 +181,9 @@ public class UI : SingletonMonoBehaviour<UI>
     private void RefillTheQuestLayoutGroup()
     {
         int j = 0;
-        for (int i = questDescriptions.Count-1; i >0; i--)
+        for (int i = questDescriptions.Count - 1; i > 0; i--)
         {
-            if (j<amountOfQuestsOnScreen)
+            if (j < amountOfQuestsOnScreen)
             {
                 questDescriptions[i].transform.parent = questLayoutGroup.transform;
             }
@@ -170,7 +191,17 @@ public class UI : SingletonMonoBehaviour<UI>
             {
                 questDescriptions[i].gameObject.SetActive(false);
             }
-         
+
         }
+    }
+
+
+    public void Replay()
+    {
+        SceneManager.LoadScene(thisSceneName);
+    }
+    public void GoToMainManu()
+    {
+        SceneManager.LoadScene(mainaMenuSceneName);
     }
 }

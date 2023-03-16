@@ -94,7 +94,7 @@ public class PlayerControl : MonoBehaviour
                 if (_player.Roll.IsReady && _player.Roll.RollsRemaining>0)
                 {
                     if (!_player.PlayerStamina.TryToUse(_player.Roll.StaminaCost)) return;
-                    print(_player.Roll.StaminaCost);
+                  
 
                     _player.Roll.IsReady = false;
                     _player.Roll.IsIntersepted = false;
@@ -152,6 +152,12 @@ public class PlayerControl : MonoBehaviour
         _player.Roll.RollGlobalCooldownReCharge();
     }
 
-    
-   
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.collider.GetComponent<Pickable>())
+            collision.collider.GetComponent<Pickable>().PickUp();
+        
+    }
 }

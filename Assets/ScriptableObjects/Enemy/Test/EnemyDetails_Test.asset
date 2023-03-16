@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: 
   enemyPrefab: {fileID: 7080457108449874894, guid: c87e67174afc0e54ab5752a0ac9ecf70, type: 3}
-  chaseDistance: 50
+  chaseDistance: 20

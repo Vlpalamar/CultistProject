@@ -16,8 +16,7 @@ public class PlayerStamina : MonoBehaviour
     [SerializeField] private int _staminaAmount=100;
     [SerializeField] private float _penaltyTime = 3f;
     [SerializeField] private float _staminaRecoveryMultiplier=10f;
-    [SerializeField] private float _secondsUntilExosted = 0.5f;
-    [SerializeField] private float _staminaExhastedMultiplier = 30f;
+
 
 
     #region Sliders
@@ -81,10 +80,10 @@ public class PlayerStamina : MonoBehaviour
     {
         if (exhastedStaminaBar.value<_currentStamina)
             exhastedStaminaBar.value = _currentStamina;
-        yield return new WaitForSeconds(_secondsUntilExosted);
+        yield return new WaitForSeconds(UI.Instance.SecondsUntilBarExosted);
         do
         {
-            exhastedStaminaBar.value -= Time.deltaTime * _staminaExhastedMultiplier;
+            exhastedStaminaBar.value -= Time.deltaTime * UI.Instance.BarExhastedMultiplier;
             yield return new WaitForEndOfFrame();
 
         } while (exhastedStaminaBar.value>_currentStamina);

@@ -22,6 +22,7 @@ public class EnemyHealth : Health
     {
         _enemy.IsAlive = false;
         _enemy._Player.PlayerQuests.CheckQuests();
+        _enemy.Loot.DropLoot();
        // print("Die");
         Destroy(this.gameObject);
     }

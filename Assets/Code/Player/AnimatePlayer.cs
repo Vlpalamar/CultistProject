@@ -63,28 +63,19 @@ public class AnimatePlayer : MonoBehaviour
 
     private void OnDisable()
     {
-
         player.MovementByVelocityEvent.OnMovementByVelocity -= MovementByVelocityEvent_OnMovementByVelocyty;
-
         player.AimWeaponEvent.OnWeaponAim -= AimWeaponEvent_OnWeaponAim;
     }
 
     private void AimWeaponEvent_OnWeaponAim(AimWeaponEvent aimWeaponEvent, AimWeaponEventArgs args)
     {
-
         InitializeAimAnimationParameters();
-
         SetAnimationParameters(args.AimDirection);
-
     }
 
     private void MovementByVelocityEvent_OnMovementByVelocyty(MovementByVelocityEvent arg1, MovementByVelocityArgs arg2)
     {
-
-
-        
         SetAnimation(currentDirection,AnimationWalk, true, 1);
-
     }
 
     private void SetAnimationParameters(AimDirection aimDirection)

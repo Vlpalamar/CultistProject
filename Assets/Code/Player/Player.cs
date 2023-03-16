@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
     public AnimatePlayer AnimatePlayer { get => animatePlayer;  }
     public UI UI { get => uI; set => uI = value; }
     public PlayerStamina PlayerStamina { get => playerStamina; }
+    public PlayerHealth Health { get => health; }
 
 
     //private PlayerControll playerControll;
@@ -91,6 +92,6 @@ public class Player : MonoBehaviour
     {
 
         //print(health);
-        health.SetStartingHealth(playerDetails.PlayerStartHealth);
+        Health.SetStartingHealth(playerDetails.PlayerStartHealth);
     }
 }

@@ -14,22 +14,27 @@ public class EnemyMovementAI : MonoBehaviour
     private Enemy _enemy;
     private Player _player;
     private Vector2 _playerPosition;
-    private Queue<Vector2Int> _movementSteps;
+    private Queue<Vector2Int> movementSteps;
     private float _currentEnemyPathRebuildColdown = 2f;
     private Coroutine _moveEnemyRoutine;
     private WaitForFixedUpdate _waitForFixedUpdate;
     private bool _isChasingPlayer = false;
+    private bool _isReadyToChase = true;
+   
 
     private float moveSpeed;
 
-    public float MoveSpeed { get => moveSpeed; }
+    
+    public Queue<Vector2Int> MovementSteps { get => movementSteps; }
+    public MovementDetailsSO MovementDetails { get => movementDetails;  }
+    public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
 
     private void Awake()
     {
         _enemy = GetComponent<Enemy>();
-        _movementSteps = new Queue<Vector2Int>();
-
-        moveSpeed = movementDetails.MoveSpeed;
+        movementSteps = new Queue<Vector2Int>();
+      
+        MoveSpeed = movementDetails.MoveSpeed;
     }
 
     private void Start()
@@ -37,8 +42,9 @@ public class EnemyMovementAI : MonoBehaviour
         _waitForFixedUpdate = new WaitForFixedUpdate();
 
         _player = GameManager.Instance.GetPlayer();
+       
         _playerPosition = _player.transform.position;
-
+       
 
     }
     private void Update()
@@ -48,22 +54,48 @@ public class EnemyMovementAI : MonoBehaviour
 
     private void MoveEnemy()
     {
+      
+        if (!_isReadyToChase) return;
+
         _currentEnemyPathRebuildColdown -= Time.deltaTime;
+
+
+        if (IsEnoughRangeToAttack()) return;
+        
+
+        
+
+
         if (!_isChasingPlayer && Vector3.Distance(this.transform.position, _player.transform.position) < _enemy.EnemyDetails.ChaseDistance)
+        {
             _isChasingPlayer = true;
 
+        }
+      
+
         if (!_isChasingPlayer)
+        {
+
+            //_enemyAnimation.SetAnimation(_enemyAnimation.CurrentDirection, _enemyAnimation.AnimationIdle, true, 1);
             return;
+        }    
+           
 
         if (_currentEnemyPathRebuildColdown <= 0f || (Vector3.Distance(_player.transform.position, _playerPosition) > Settings.playerMoveDistanceToRebuildPath))
         {
+
+            movementSteps.Clear();
+
+            _enemy.EnemyAnimation.SetAnimation(_enemy.EnemyAnimation.CurrentDirection, _enemy.EnemyAnimation.AnimationWalk, true, 1);
+
+
             _currentEnemyPathRebuildColdown = Settings.enemyPathRebuildCooldown;
 
             _playerPosition = _player.transform.position;
 
             CreatePath();
 
-            if (_movementSteps != null)
+            if (movementSteps != null)
             {
                 if (_moveEnemyRoutine != null)
                 {
@@ -71,7 +103,7 @@ public class EnemyMovementAI : MonoBehaviour
                     StopCoroutine(_moveEnemyRoutine);
                 }
 
-                _moveEnemyRoutine = StartCoroutine(MoveEnemyRoutine(_movementSteps));
+                _moveEnemyRoutine = StartCoroutine(MoveEnemyRoutine(movementSteps));
 
             }
 
@@ -80,6 +112,37 @@ public class EnemyMovementAI : MonoBehaviour
 
 
 
+    }
+
+
+    public bool IsEnoughRangeToAttack()
+    {
+        //print("GERE");
+        //Enough rangeToAttack
+        if (Vector3.Distance(this.transform.position, _player.transform.position) < _enemy.EnemyAttack.AttackDetails.AttackRange)
+        {
+            StopChasing();
+            _enemy.EnemyAttack.StartAttack();
+            movementSteps.Clear();
+            return true;
+            
+
+        }
+        return false;
+
+    }
+    public void StopChasing()
+    {
+        _isReadyToChase = false;
+        if (_moveEnemyRoutine!=null) 
+            StopCoroutine(_moveEnemyRoutine);
+        
+        
+    }
+
+    public void CountinueChasing()
+    {
+        _isReadyToChase = true;
     }
 
     private IEnumerator MoveEnemyRoutine(Queue<Vector2Int> movementSteps)
@@ -91,15 +154,18 @@ public class EnemyMovementAI : MonoBehaviour
             Vector2 nextStep = AStar.Instance.Grid.CellToWorld(newVector);
 
             //print("nextPosition:"+ nextStep);
-            while (Vector2.Distance(nextStep, transform.position)>0.2f)
+            while (Vector2.Distance(nextStep, transform.position)>0.4f)
             {
-                _enemy.MoveToPosition.CallOnMoveToPositionEvent(transform.position, nextStep, (nextStep - (Vector2)transform.position).normalized, moveSpeed);
+                _enemy.MoveToPosition.CallOnMoveToPositionEvent(transform.position, nextStep, (nextStep - (Vector2)transform.position).normalized, MoveSpeed);
 
+                if (IsEnoughRangeToAttack()) 
+                    break;
                 
 
                 yield return _waitForFixedUpdate;
 
             }
+           
             yield return _waitForFixedUpdate;
         }
         _player.Rigidbody.velocity = new Vector2(0,0);
@@ -114,10 +180,10 @@ public class EnemyMovementAI : MonoBehaviour
 
         Vector2Int playerPos = GetNearestNonObstaclePlayerPosition(playerGridPosition);
 
-        _movementSteps = AStar.Instance.BuidlPath(ennemyGridPosition, playerGridPosition);
+        movementSteps = AStar.Instance.BuidlPath(ennemyGridPosition, playerGridPosition);
 
-        if (_movementSteps != null)
-           _movementSteps.Dequeue();
+        if (movementSteps != null)
+           movementSteps.Dequeue();
         
         else
             _player.Rigidbody.velocity = new Vector2(0, 0);

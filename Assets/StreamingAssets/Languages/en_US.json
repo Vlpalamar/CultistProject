@@ -91,6 +91,20 @@
     {
       "key": "Quit",
       "value": "Quit"
+    },
+    {
+      "key": "Replay",
+      "value": "Replay"
+    },
+    {
+      "key": "Main_Menu",
+      "value": "Main Menu"
+    },
+    {
+      "key": "You_Died",
+      "value": "You Died"
     }
+
+
   ]
 }

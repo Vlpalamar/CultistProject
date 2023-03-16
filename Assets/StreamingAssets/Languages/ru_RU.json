@@ -91,6 +91,18 @@
     {
       "key": "Quit",
       "value": "Вихід"
+    },
+    {
+      "key": "Replay",
+      "value": "Переграти"
+    },
+    {
+      "key": "Main_Menu",
+      "value": "Головне Меню"
+    },
+    {
+      "key": "You_Died",
+      "value": "Ти помер"
     }
 
 

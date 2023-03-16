@@ -7,7 +7,10 @@ public abstract class Health : MonoBehaviour
 
     [SerializeField] protected HealthDetailsSO healthDetails;
 
-    [SerializeField]protected float currentHealth;
+    [SerializeField] protected float currentHealth;
+
+    public float CurrentHealth { get => currentHealth; }
+    public HealthDetailsSO HealthDetails { get => healthDetails; }
 
     public virtual void GetDamage(float damage)
     {
