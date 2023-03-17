@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DaveHealth
   m_EditorClassIdentifier: 
   startingHeath: 100
-  maximumHealth: 100
+  maximumHealth: 200

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(GiveWeaponEvent))]
+[RequireComponent(typeof(GiveArthefactEvent))]
 [RequireComponent(typeof(GiveWeapon))]
 [DisallowMultipleComponent]
 public class WeaponLoot : MonoBehaviour
@@ -15,7 +16,17 @@ public class WeaponLoot : MonoBehaviour
     #region Tooltip
     [Tooltip("Populate with weapon")]
     #endregion
-    [SerializeField] private Weapon itemOnPedestal;
+    [SerializeField] private Weapon WeaponOnPedestal;
+    #region Arthefact
+    [Space(10)]
+    [Header("Arthefact")]
+    #endregion
+    #region Tooltip
+    [Tooltip("Populate with Arthefact")]
+    #endregion
+    [SerializeField] private Arthefact ArthefactOnPedestal;
+
+
 
     #region LevitationDetails
     [Space(10)]
@@ -31,12 +42,13 @@ public class WeaponLoot : MonoBehaviour
     private Coroutine _levitateCouratine;
     private bool _isReadyToGive;
     private GiveWeaponEvent _weaponEvent;
+    private GiveArthefactEvent _arthefactEvent;
     private GiveWeapon _giveWeapon;
    
 
-    public WeaponLoot(Weapon weapon)
+    public WeaponLoot(Weapon weapon, Arthefact arthefact)
     {
-        Init(weapon);
+        Init(weapon, arthefact);
 
     }
     private void Awake()
@@ -44,32 +56,56 @@ public class WeaponLoot : MonoBehaviour
         _weaponEvent = GetComponent<GiveWeaponEvent>();
         _giveWeapon = GetComponent<GiveWeapon>();
         _weaponEvent.OnGiveWeapon += PlaySoundEffect;
+        _arthefactEvent = GetComponent<GiveArthefactEvent>();
+        _arthefactEvent.OnGiveArthefact += PlaySoundEffect;
+        _arthefactEvent.OnGiveArthefact += GiveArthefact;
     }
+
+  
 
     private void Start()
     {
-        Init(itemOnPedestal);
+        Init(WeaponOnPedestal, ArthefactOnPedestal);
     }
 
    
 
     private void Update()
     {
-        if (itemOnPedestal == null) return;
-        if (_isReadyToGive)
+        bool isButtonPressed = Input.GetKeyDown(KeyCode.E);
+        if (WeaponOnPedestal != null )
         {
-            
-            bool isButtonPressed = Input.GetKeyDown(KeyCode.E);
-            if (isButtonPressed)
+            if (_isReadyToGive)
             {
-                _weaponEvent.CallGiveWeaponEvent(itemOnPedestal);
-                DisableThisPedestal();
-            }
                
+                if (isButtonPressed)
+                {
+                    
+                        _weaponEvent.CallGiveWeaponEvent(WeaponOnPedestal);
+                    
+                  
+                    DisableThisPedestal();
+                }
 
-
-
+            }
         }
+        if (ArthefactOnPedestal !=null)
+        {
+            if (_isReadyToGive)
+            {
+
+              
+                if (isButtonPressed)
+                {
+                   
+                        _arthefactEvent.CallGiveArthefactEvent(ArthefactOnPedestal);
+                    
+                    DisableThisPedestal();
+                }
+
+            }
+        }
+        
     }
 
    
@@ -87,12 +123,24 @@ public class WeaponLoot : MonoBehaviour
     }
 
 
-    private void Init(Weapon weapon)
+    private void Init(Weapon weapon, Arthefact arthefact)
     {
         _startPosition = loot.transform.position;
-        itemOnPedestal = weapon;
         _WeaponSpriteRenderer = loot.GetComponent<SpriteRenderer>();
-        _WeaponSpriteRenderer.sprite =itemOnPedestal.WeaponDetails.Icon;
+        if (weapon!=null)
+        {
+            WeaponOnPedestal = weapon;
+            _WeaponSpriteRenderer.sprite = WeaponOnPedestal.WeaponDetails.Icon;
+        }
+        if (arthefact != null)
+        {
+            ArthefactOnPedestal = arthefact;
+            _WeaponSpriteRenderer.sprite = ArthefactOnPedestal.Icon;
+        }
+
+
+
+
         _levitateCouratine = StartCoroutine(nameof(Levitate));
     }
 
@@ -132,11 +180,17 @@ public class WeaponLoot : MonoBehaviour
 
     private void DisableThisPedestal()
     {
-        itemOnPedestal = null;
+        WeaponOnPedestal = null;
+        ArthefactOnPedestal = null;
         _WeaponSpriteRenderer.sprite = null;
         _weaponEvent.OnGiveWeapon -= PlaySoundEffect;
         Destroy(this);
 
+    }
+
+    private void GiveArthefact(GiveArthefactEvent giveArthefactEvent, GiveArthefactEventArgs giveArthefactEventArgs)
+    {
+        GameManager.Instance.GetPlayer().CurrentArthefact.ChangeArthefact(giveArthefactEventArgs.Arthefact);
     }
 
 
@@ -148,6 +202,17 @@ public class WeaponLoot : MonoBehaviour
 
         }
     }
+
+    private void PlaySoundEffect(GiveArthefactEvent giveArthefactEvent, GiveArthefactEventArgs giveArthefactEventArgs)
+    {
+        if (takeTheLootSoundEffect != null)
+        {
+            SoundEffectManager.Instance.PlaySoundEffect(takeTheLootSoundEffect);
+
+        }
+    }
+
+
 
 
 

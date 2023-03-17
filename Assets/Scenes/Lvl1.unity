@@ -4895,6 +4895,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3949090186430042056, guid: 0f3871d3e47dcd144979ab7f3a554a86, type: 3}
+      propertyPath: WeaponOnPedestal
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -3949090186430042056, guid: 0f3871d3e47dcd144979ab7f3a554a86, type: 3}
+      propertyPath: ArthefactOnPedestal
+      value: 
+      objectReference: {fileID: 8359110897604502836, guid: e16c195ef76a7eb4e8d9d6cef7faaa4a, type: 3}
     - target: {fileID: 2908718805541517087, guid: 0f3871d3e47dcd144979ab7f3a554a86, type: 3}
       propertyPath: m_RootOrder
       value: 1

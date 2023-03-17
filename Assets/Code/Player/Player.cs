@@ -19,6 +19,7 @@ using UnityEngine;
 [RequireComponent(typeof(AnimatePlayer))]
 [RequireComponent(typeof(PlayerControl))] 
 [RequireComponent(typeof(PlayerStamina))]
+[RequireComponent(typeof(CurrentArthefact))]
 
 [DisallowMultipleComponent]
 public class Player : MonoBehaviour
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
     private AnimatePlayer animatePlayer;
     private UI uI;
     private PlayerStamina playerStamina;
+    private CurrentArthefact currentArthefact;
 
     public MovementByVelocityEvent MovementByVelocityEvent { get => movementByVelocityEvent;}
     public AimWeaponEvent AimWeaponEvent { get => aimWeaponEvent; }
@@ -54,6 +56,7 @@ public class Player : MonoBehaviour
     public UI UI { get => uI; set => uI = value; }
     public PlayerStamina PlayerStamina { get => playerStamina; }
     public PlayerHealth Health { get => health; }
+    public CurrentArthefact CurrentArthefact { get => currentArthefact; }
 
 
     //private PlayerControll playerControll;
@@ -75,6 +78,7 @@ public class Player : MonoBehaviour
         rollEvent = GetComponent<RollEvent>();
         playerQuests = GetComponent<PlayerQuests>();
         playerStamina = GetComponent<PlayerStamina>();
+        currentArthefact = GetComponent<CurrentArthefact>();
         uI = GameManager.Instance.UI;
 
 
