@@ -42,11 +42,10 @@ public class PlayerControl : MonoBehaviour
 
     private void WeaponUse()
     {
-        if (_player.Weapon.Weapon == null) return;   
-        
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-            _player.Weapon.Use(_aimDirection);      
+        if (_player.Weapon.Weapon == null) return;
 
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            _player.AnimatePlayer.SetAttackAnimation(_aimDirection, _player.AnimatePlayer.AnimationAttack, false, 1f);
 
     }
 
@@ -110,8 +109,8 @@ public class PlayerControl : MonoBehaviour
         }
         else
         {
-            //idle
-            _player.MovementByVelocityEvent.CallMovementByVelocityEvent(direction, 0);
+            _player.IdleEvent.CallIdleEvent();
+           // _player.MovementByVelocityEvent.CallMovementByVelocityEvent(direction, 0);
         }
 
 

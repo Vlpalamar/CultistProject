@@ -1,0 +1,9 @@
+Tentakli.png
+size:778,158
+filter:Linear,Linear
+Tentacl_1
+bounds:2,38,118,450
+rotate:90
+Tentacl_2
+bounds:454,2,154,322
+rotate:90

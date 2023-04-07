@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: TheDeepOne
   enemyPrefab: {fileID: 7080457108449874894, guid: 25f0cd62bdbbe0041a8f76f8a8e012e2, type: 3}
-  chaseDistance: 15
+  chaseDistance: 10

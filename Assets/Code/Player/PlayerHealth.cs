@@ -33,6 +33,7 @@ public class PlayerHealth : Health
     protected override void Die()
     {
         base.Die();
+        UI.Instance.StopTheGame();
         UI.Instance.DeathMenu.gameObject.SetActive(true);
     }
 

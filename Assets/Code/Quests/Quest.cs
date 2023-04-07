@@ -19,7 +19,7 @@ public abstract class Quest :MonoBehaviour
 
     public abstract void GetQuest();
 
-    protected void CompleteTheQuest()
+    protected virtual void CompleteTheQuest()
     {
         //мелодия
     }

@@ -122,13 +122,13 @@ public class UI : SingletonMonoBehaviour<UI>
 
     private void OpenPauseMenu()
     {
-        Time.timeScale = 0f;
+        StopTheGame();
         _pauseMenu.SetActive(true);
     }
 
     public void ClosePauseMenu()
     {
-        Time.timeScale = 1f;
+        ReturnToTheGame();
         _pauseMenu.SetActive(false);
     }
 
@@ -199,9 +199,22 @@ public class UI : SingletonMonoBehaviour<UI>
     public void Replay()
     {
         SceneManager.LoadScene(thisSceneName);
+        ReturnToTheGame();
     }
     public void GoToMainManu()
     {
         SceneManager.LoadScene(mainaMenuSceneName);
+        ReturnToTheGame();
+
+
+    }
+
+    public void StopTheGame()
+    {
+        Time.timeScale = 0f;
+    }
+    public void ReturnToTheGame()
+    {
+        Time.timeScale = 1f;
     }
 }

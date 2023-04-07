@@ -24,7 +24,7 @@ public class WeaponLoot : MonoBehaviour
     #region Tooltip
     [Tooltip("Populate with Arthefact")]
     #endregion
-    [SerializeField] private Arthefact ArthefactOnPedestal;
+    [SerializeField] private Arthefact arthefactOnPedestal;
 
 
 
@@ -44,7 +44,8 @@ public class WeaponLoot : MonoBehaviour
     private GiveWeaponEvent _weaponEvent;
     private GiveArthefactEvent _arthefactEvent;
     private GiveWeapon _giveWeapon;
-   
+
+    public Arthefact ArthefactOnPedestal { get => arthefactOnPedestal; set => arthefactOnPedestal = value; }
 
     public WeaponLoot(Weapon weapon, Arthefact arthefact)
     {
@@ -65,7 +66,7 @@ public class WeaponLoot : MonoBehaviour
 
     private void Start()
     {
-        Init(WeaponOnPedestal, ArthefactOnPedestal);
+        Init(WeaponOnPedestal, arthefactOnPedestal);
     }
 
    
@@ -89,7 +90,7 @@ public class WeaponLoot : MonoBehaviour
 
             }
         }
-        if (ArthefactOnPedestal !=null)
+        if (arthefactOnPedestal !=null)
         {
             if (_isReadyToGive)
             {
@@ -98,7 +99,7 @@ public class WeaponLoot : MonoBehaviour
                 if (isButtonPressed)
                 {
                    
-                        _arthefactEvent.CallGiveArthefactEvent(ArthefactOnPedestal);
+                        _arthefactEvent.CallGiveArthefactEvent(arthefactOnPedestal);
                     
                     DisableThisPedestal();
                 }
@@ -123,7 +124,7 @@ public class WeaponLoot : MonoBehaviour
     }
 
 
-    private void Init(Weapon weapon, Arthefact arthefact)
+    public void Init(Weapon weapon, Arthefact arthefact)
     {
         _startPosition = loot.transform.position;
         _WeaponSpriteRenderer = loot.GetComponent<SpriteRenderer>();
@@ -134,8 +135,8 @@ public class WeaponLoot : MonoBehaviour
         }
         if (arthefact != null)
         {
-            ArthefactOnPedestal = arthefact;
-            _WeaponSpriteRenderer.sprite = ArthefactOnPedestal.Icon;
+            arthefactOnPedestal = arthefact;
+            _WeaponSpriteRenderer.sprite = arthefactOnPedestal.Icon;
         }
 
 
@@ -181,7 +182,7 @@ public class WeaponLoot : MonoBehaviour
     private void DisableThisPedestal()
     {
         WeaponOnPedestal = null;
-        ArthefactOnPedestal = null;
+        arthefactOnPedestal = null;
         _WeaponSpriteRenderer.sprite = null;
         _weaponEvent.OnGiveWeapon -= PlaySoundEffect;
         Destroy(this);

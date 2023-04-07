@@ -93,10 +93,12 @@ public class Dagger : MeleeWeapon
         _radius = 1.5f;
     }
 
+    Queue<Health> healths = new Queue<Health>();
     private void HitAllInArrea(Collider2D[] hits)
     {
-          
-       
+        healths = new Queue<Health>();
+        healths.Clear();
+
         if (hits == null) return;
         foreach (Collider2D hit in hits)
         {
@@ -104,11 +106,24 @@ public class Dagger : MeleeWeapon
             Health hitHealth = hit.GetComponent<Health>();
             if (hitHealth == null||hit.GetComponent<PlayerHealth>()) continue;
 
-          //  print(hit.name);
-            hitHealth.GetDamage(this.weaponDetails.Damage);
+            //  print(hit.name);
+            
+            healths.Enqueue(hitHealth);
+           
             //print("!");
         }
+
+        Invoke(nameof(DammageAll), 0.1f);
+       
+        
+       
     }
 
-   
+    private void DammageAll()
+    {
+        for (int i = 0; i < healths.Count; i++)
+        {
+            healths.Dequeue().GetDamage(this.weaponDetails.Damage);
+        }
+    }
 }

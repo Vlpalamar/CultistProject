@@ -13,6 +13,8 @@ using UnityEngine;
 [RequireComponent(typeof(AimWeapon))]
 [RequireComponent(typeof(AimWeaponEvent))]
 [RequireComponent(typeof(CurrentWeapon))]
+[RequireComponent(typeof(IdleEvent))]
+[RequireComponent(typeof(Idle))]
 [RequireComponent(typeof(Roll))]
 [RequireComponent(typeof(RollEvent))]
 [RequireComponent(typeof(PlayerHelperUtility))]
@@ -32,6 +34,7 @@ public class Player : MonoBehaviour
     private PlayerDetailsSO playerDetails;
     private MovementByVelocityEvent movementByVelocityEvent;
     private AimWeaponEvent aimWeaponEvent;
+    private IdleEvent idleEvent;
     private PlayerControl playerControl;
     private CurrentWeapon weapon;
     private Roll roll;
@@ -57,6 +60,7 @@ public class Player : MonoBehaviour
     public PlayerStamina PlayerStamina { get => playerStamina; }
     public PlayerHealth Health { get => health; }
     public CurrentArthefact CurrentArthefact { get => currentArthefact; }
+    public IdleEvent IdleEvent { get => idleEvent;  }
 
 
     //private PlayerControll playerControll;
@@ -79,6 +83,7 @@ public class Player : MonoBehaviour
         playerQuests = GetComponent<PlayerQuests>();
         playerStamina = GetComponent<PlayerStamina>();
         currentArthefact = GetComponent<CurrentArthefact>();
+        idleEvent = GetComponent<IdleEvent>();
         uI = GameManager.Instance.UI;
 
 

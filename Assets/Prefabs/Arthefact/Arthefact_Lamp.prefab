@@ -48,3 +48,4 @@ MonoBehaviour:
   isAlways: 1
   _regularHealthRestor: 10
   _healthTickRate: 5
+  healthEffect: {fileID: 9017484664307500583, guid: 1245b8d2997d5b34fb1637be70a7eb05, type: 3}

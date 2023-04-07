@@ -53,12 +53,20 @@
       "value": "Допоможи"
     },
     {
+      "key": "Npc_In_Trouble_Dialog1_replic2",
+      "value": "Швидше, ти ще можеш наздогнати їх"
+    },
+    {
       "key": "Npc_In_Trouble_NothingToSay_replic1",
       "value": "Дякую, що прийшов"
     },
     {
+      "key": "Npc_In_Trouble_NothingToSay_replic2",
+      "value": "наразі мені більше нічого тобі сказати"
+    },
+    {
       "key": "Help_The_Npc_Quest_Description",
-      "value": "Допоможи цьому хлопцью вибратися з халепи"
+      "value": "Вбий глубоководних, які зайняли наш табір "
     },
     {
       "key": "Button_binding",

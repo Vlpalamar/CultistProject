@@ -53,12 +53,21 @@
       "value": "HEELP"
     },
     {
+      "key": "Npc_In_Trouble_Dialog1_replic2",
+      "value": "Hurry Up, You stlil can catch up them "
+    },
+
+    {
       "key": "Npc_In_Trouble_NothingToSay_replic1",
       "value": "thank you for coming"
     },
     {
+      "key": "Npc_In_Trouble_NothingToSay_replic2",
+      "value": "I Have nothing to say you, yet"
+    },
+    {
       "key": "Help_The_Npc_Quest_Description",
-      "value": "help the guy get out of trouble"
+      "value": "Kill deep ons, who takes our camp"
     },
     {
       "key": "Button_binding",

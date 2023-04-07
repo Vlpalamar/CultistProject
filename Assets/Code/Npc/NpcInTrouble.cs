@@ -17,13 +17,13 @@ public class NpcInTrouble : NPC
             {
                 if (questName==item.QuestNameKey)
                 {
-                    print("FOUND IT");
+                  
                     quests.Add(item.Quest);
                 }
             }
         }
 
-        print("Quest is Ready TO Take");
+        //print("Quest is Ready TO Take");
 
 
     }

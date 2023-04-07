@@ -21,6 +21,7 @@ public  class Enemy : MonoBehaviour
     #endregion
     [SerializeField] private EnemyDetailsSO enemyDetails;
 
+    private EnemyHealth health;
     private EnemyMovementAI enemyMovementAI;
     private IdleEvent idleEvent;
     private MoveToPositionEvent moveToPosition;
@@ -44,6 +45,7 @@ public  class Enemy : MonoBehaviour
     public EnemyMovementAI EnemyMovementAI { get => enemyMovementAI; }
     public BoxCollider2D BoxCollider { get => boxCollider; }
     public Loot Loot { get => loot; }
+    public EnemyHealth Health { get => health;  }
 
     private void Awake()
     {
@@ -57,6 +59,7 @@ public  class Enemy : MonoBehaviour
         enemyAnimation = GetComponent<EnemyAnimation>();
         enemyAttack = GetComponent<EnemyAttack>();
         loot = GetComponent<Loot>();
+        health = GetComponent<EnemyHealth>();
     }
    
 }

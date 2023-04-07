@@ -14,7 +14,7 @@ public abstract class Health : MonoBehaviour
 
     public virtual void GetDamage(float damage)
     {
-      //  print("HIT");
+        print("HIT");
         if (currentHealth-damage>0)
             currentHealth = currentHealth - damage;
         else

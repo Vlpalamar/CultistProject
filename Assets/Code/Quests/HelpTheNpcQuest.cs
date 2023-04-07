@@ -8,39 +8,52 @@ public class HelpTheNpcQuest : Quest
 {
     [HideInInspector]
     public List<Enemy> enemies= new List<Enemy>();
+    private AltarEvent _altarEvent;
+    
 
 
 
     public override bool CheckTheQuest()
     {
+        if (!_altarEvent.IsActive) return false;
+       
+
+        
         foreach (Enemy enemy in enemies)
         {
             if (!enemy.IsAlive)
             {
                 enemies.Remove(enemy);
+
             }
         }
 
-        Debug.LogWarning("remaining: "+ enemies.Count);
-        if (enemies.Count > 0)
+     
+        if (enemies.Count > 1)
             return false;
         else
         {
+           
             CompleteTheQuest();
             return true;
         }
             
     }
 
- 
 
-    
+    protected override void CompleteTheQuest()
+    {
+        base.CompleteTheQuest();
+        _altarEvent.CompleteEvent();
+       
+    }
+
 
     public override void GetQuest()
     {
         print("GetFromLoad");
        this.QuestDetails.QuestDescriptionKey = "Help_The_Npc_Quest_Description";
-        this.QuestDetails.QuestNameKey = "HelpTheNpcQuestName";
+       this.QuestDetails.QuestNameKey = "HelpTheNpcQuestName";
 
 
       //  Debug.LogWarning("remaining: " + enemies.Count);
@@ -48,11 +61,16 @@ public class HelpTheNpcQuest : Quest
         {
             if (Event.EventName == "AltarEvent")
             {
-                AltarEvent altarEvent = (AltarEvent)Event;
+               
+                _altarEvent = (AltarEvent)Event;
 
+                if (!_altarEvent.IsActive) return;
+                
+
+                
                 Debug.LogWarning("find it");
-                enemies = altarEvent.Enemies;
-                 print("!!!!!!!!"+altarEvent.Enemies.Count);
+                enemies = _altarEvent.Enemies;
+                
             }
         }
     }

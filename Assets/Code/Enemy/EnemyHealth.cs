@@ -14,18 +14,33 @@ public class EnemyHealth : Health
     }
     public override void GetDamage(float damage)
     {
-        base.GetDamage(damage);
         _enemy.EnemyEffects.PlayOnGetDamage();
+        base.GetDamage(damage);
+       
     }
 
     protected override void Die()
     {
         _enemy.IsAlive = false;
+       
+       
         _enemy._Player.PlayerQuests.CheckQuests();
-        _enemy.Loot.DropLoot();
-       // print("Die");
-        Destroy(this.gameObject);
+        _enemy.EnemyAnimation.SetDeathAnimation(_enemy.EnemyAnimation.CurrentDirection, _enemy.EnemyAnimation.AnimationDeath, false, 1);
+       
+        // print("Die");
+    }
+
+    protected void CheckQusts()
+    {
+        
+    }
+    public void KillHim()
+    {
+        Die();
     }
 
     
+    
+      
+
 }

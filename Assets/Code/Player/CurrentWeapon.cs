@@ -46,6 +46,9 @@ public class CurrentWeapon : MonoBehaviour
     public void ChangeWeapon(Weapon newWeapon)
     {
         weapon = newWeapon;
+        
+        _player.AnimatePlayer.ChangeWeapon();
+      
     }
 
 

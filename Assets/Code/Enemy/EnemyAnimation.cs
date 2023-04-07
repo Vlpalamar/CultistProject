@@ -22,17 +22,20 @@ public class EnemyAnimation : MonoBehaviour
     private SkeletonAnimation animator;
 
     private bool _isReadyToChange = true;
+    private bool _isDead = false;
 
 
     #region AnimationNames
     private string animationWalk = "Run";
     private string animationAttack = "Attak";
     private string animationRush = "Blink";
+    private string animationDeath = "Death";
 
     public string AnimationWalk { get => animationWalk; }
     public string AnimationAttack { get => animationAttack; }
     public string AnimationLeap { get => animationRush; }
     public AimDirection CurrentDirection { get => currentDirection; }
+    public string AnimationDeath { get => animationDeath; }
     #endregion
 
 
@@ -68,7 +71,7 @@ public class EnemyAnimation : MonoBehaviour
 
     public void SetAttackAnimation(AimDirection aimDirection, string animation, bool loop, float timeScale)
     {
-
+        if (_isDead) return;
         if (animation == currentAnimationName && aimDirection == CurrentDirection)
             return;
         _isReadyToChange = false;
@@ -81,13 +84,53 @@ public class EnemyAnimation : MonoBehaviour
 
         currentAnimationName = animation;
         currentDirection = aimDirection;
+
     }
+
+    
 
     private void OnAttackEnd(TrackEntry trackEntry)
     {
         _isReadyToChange = true;
         _enemy.EnemyMovementAI.CountinueChasing();
 
+    }
+
+    public void SetDeathAnimation(AimDirection aimDirection, string animation, bool loop, float timeScale)
+    {
+        _isDead = true;
+
+        if (animation == currentAnimationName && aimDirection == CurrentDirection)
+            return;
+        _isReadyToChange = false;
+       
+
+        Spine.TrackEntry trackEntry = animator.state.SetAnimation(0, animation, loop);
+        trackEntry.TimeScale = timeScale;
+        trackEntry.Event += OnEvents;
+        trackEntry.Complete += OnDeathEnd;
+        trackEntry.Start+= OnDeathStart;
+
+
+        currentAnimationName = animation;
+        currentDirection = aimDirection;
+
+
+    }
+
+
+
+    private void OnDeathStart(TrackEntry trackEntry)
+    {
+      
+        _enemy.GetComponent<BoxCollider2D>().enabled = false;
+    }
+
+    private void OnDeathEnd(TrackEntry trackEntry)
+    {
+
+        _enemy.Loot.DropLoot();
+        Destroy(this.gameObject);
     }
 
     private void GetAim()
@@ -157,7 +200,7 @@ public class EnemyAnimation : MonoBehaviour
 
     private void OnEvents(TrackEntry trackEntry, Spine.Event e)
     {
-        print(e.Data.Name);
+       // print(e.Data.Name);
         if (e.Data.Name.ToLower() == "attak")
         {
             _enemy.EnemyAttack.DealDamage(_enemy.EnemyAttack.AttackDetails.Damage);

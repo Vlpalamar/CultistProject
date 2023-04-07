@@ -42,7 +42,7 @@ public class TheDeepOneAttack : EnemyAttack
     private IEnumerator LeapRoutine(float deshLeapDistance, Rigidbody2D rigidbody, Vector2 direction, float deshSpeed)
     {
         _enemy.EnemyMovementAI.MoveSpeed = _enemy.EnemyMovementAI.MovementDetails.MoveSpeed + _deshSpeed;
-        float checkIsEnemyTouchThePlayerTimer=0.1f;
+        float checkIsEnemyTouchThePlayerTimer=0.5f;
         float i = _deshDuration / checkIsEnemyTouchThePlayerTimer;
 
         while (i>0)

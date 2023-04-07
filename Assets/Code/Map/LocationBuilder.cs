@@ -133,17 +133,17 @@ public class LocationBuilder : MonoBehaviour
                     if (xPos== (startPos.x+endPos.x)/2 && yPos== (startPos.y + endPos.y) / 2 )
                     {
 
-                        int xMyltiplyer = 2;
-                        int yMyltiplyer = 2;
+                        //int xMyltiplyer = 2;
+                        //int yMyltiplyer = 2;
 
-                        if (eventSO.proportions.x> eventSO.proportions.y )
-                            xMyltiplyer = 3;
-                        if (eventSO.proportions.x < eventSO.proportions.y)
-                            yMyltiplyer = 3;
+                        //if (eventSO.proportions.x> eventSO.proportions.y )
+                        //    xMyltiplyer = 3;
+                        //if (eventSO.proportions.x < eventSO.proportions.y)
+                        //    yMyltiplyer = 3;
 
-                        int eventOffsetX = eventSO.proportions.x / xMyltiplyer;
-                        int eventOffsetY= eventSO.proportions.y/ yMyltiplyer;
-                        instantiatedEvent.gameObjectLocationTransform.position= tilemap.CellToLocal(new Vector3Int(xPos+ eventOffsetX, yPos+eventOffsetY,0));
+                        int eventOffsetX = eventSO.proportions.x / 2;
+                        int eventOffsetY= eventSO.proportions.y/ 2;
+                        instantiatedEvent.gameObjectLocationTransform.position= tilemap.CellToLocal(new Vector3Int(endPos.x-1+ eventOffsetX, endPos.y+1+eventOffsetY,0));
                     }
                 }
                  

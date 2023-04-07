@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9795ea3be49cf2e4c95a5da57716fa33, type: 3}
   m_Name: Event_ Altar
   m_EditorClassIdentifier: 
-  startCopyEventPosition: {x: 2, y: 0}
-  startCopyEventFreePosition: {x: 2, y: 0}
-  proportions: {x: 7, y: 5}
+  startCopyEventPosition: {x: 8, y: 5}
+  startCopyEventFreePosition: {x: 8, y: 5}
+  proportions: {x: 16, y: 14}
   eventPrefab: {fileID: 2312838558629789761, guid: 0e1063ec92f65de4097e5c33b55b5633, type: 3}
-  eventFreePrefab: {fileID: 2312838558629789761, guid: 0e1063ec92f65de4097e5c33b55b5633, type: 3}
+  eventFreePrefab: {fileID: 2312838558629789761, guid: aeed8b6c9ef4e0f45bb582395d2d1a1f, type: 3}
