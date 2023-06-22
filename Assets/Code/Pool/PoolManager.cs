@@ -22,6 +22,7 @@ public class PoolManager : SingletonMonoBehaviour<PoolManager>
         public GameObject prefab;
         public string componentType;
     }
+
     protected override  void Awake()
     {
         base.Awake();
@@ -98,7 +99,7 @@ public class PoolManager : SingletonMonoBehaviour<PoolManager>
     {
         componentToReuse.transform.position = position;
         componentToReuse.transform.rotation = rotation;
-      //  componentToReuse.gameObject.transform.localScale = prefab.transform.localScale;
+        componentToReuse.gameObject.transform.localScale = prefab.transform.localScale;
     }
  
 

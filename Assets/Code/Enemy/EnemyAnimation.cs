@@ -128,9 +128,8 @@ public class EnemyAnimation : MonoBehaviour
 
     private void OnDeathEnd(TrackEntry trackEntry)
     {
-
-        _enemy.Loot.DropLoot();
-        Destroy(this.gameObject);
+        _enemy.Health.AfterDeath();
+        
     }
 
     private void GetAim()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +31,8 @@ public class EnemyHealth : Health
         // print("Die");
     }
 
+   
+
     protected void CheckQusts()
     {
         
@@ -39,8 +42,9 @@ public class EnemyHealth : Health
         Die();
     }
 
-    
-    
-      
-
+    public void AfterDeath()
+    {
+        _enemy.Loot.DropLoot();
+        this.gameObject.SetActive(false);
+    }
 }
